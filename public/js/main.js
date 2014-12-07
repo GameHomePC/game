@@ -1,5 +1,5 @@
 var game, player, getPlayer, cursors;
-var circle, blocks, emitter, bg;
+var circle, blocks, emitter, bg, map, layer;
 var w = window;
 
 var percent = function(value, percent){
@@ -18,11 +18,13 @@ var widthCanvas = 800,
 game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
     preload: function(){
 
-        game.load.spritesheet('player', 'public/images/phaser/player.png', 200, 200, 4);
-        game.load.image('dirt', 'public/images/phaser/dirt.png');
-        game.load.image('cloud', 'public/images/phaser/cloud.png');
-        game.load.image('glass', 'public/images/phaser/glass.png');
-        game.load.image('background', 'public/images/phaser/background.png');
+        game.load.spritesheet('player', 'public/phaser_source/img/player.png', 200, 200, 4);
+        game.load.image('dirt', 'public/phaser_source/img/dirt.png');
+        game.load.image('cloud', 'public/phaser_source/img/cloud.png');
+        game.load.image('glass', 'public/phaser_source/img/glass.png');
+        game.load.image('background', 'public/phaser_source/img/background.png');
+        game.load.image('tiles-1', 'public/phaser_source/img/tiles-1.png');
+        game.load.tilemap('levels', 'public/phaser_source/json/levels.json', null, Phaser.Tilemap.TILED_JSON);
 
     },
     create: function(){
@@ -32,6 +34,13 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
 
         bg = game.add.tileSprite(0, 0, widthCanvas, heightCanvas, 'background');
         bg.fixedToCamera = true;
+
+        map = game.add.tilemap('levels');
+        map.addTilesetImage('tiles-1');
+        map.setCollisionByExclusion([ 13, 14, 15, 16, 46, 47, 48, 49, 50, 51 ]);
+
+        layer = map.createLayer('Tile Layer 1');
+        layer.resizeWorld();
 
 
         player = new Player(game, 'player', 0.5, 0);
