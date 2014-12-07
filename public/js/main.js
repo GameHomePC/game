@@ -4,10 +4,10 @@ var circle, blocks;
 game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
     preload: function(){
 
-        game.load.spritesheet('player', '/public/images/phaser/player.png', 200, 200, 4);
-        game.load.image('dirt', '/public/images/phaser/dirt.png')
-        game.load.image('cloud', '/public/images/phaser/cloud.png')
-        game.load.image('glass', '/public/images/phaser/glass.png')
+        game.load.spritesheet('player', 'public/images/phaser/player.png', 200, 200, 4);
+        game.load.image('dirt', 'public/images/phaser/dirt.png')
+        game.load.image('cloud', 'public/images/phaser/cloud.png')
+        game.load.image('glass', 'public/images/phaser/glass.png')
 
     },
     create: function(){
@@ -33,9 +33,6 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
 
         var bounds = options.bounds();
         var metre = options.metre(20);
-        var emitter = game.add.emitter(10, 10, 100);
-        emitter.makeParticles('dirt', 0, 250, true, true);
-        emitter.start(false, 5000, 1000, 1000);
 
         game.world.setBounds(0, 0, bounds.x, bounds.y);
 
@@ -78,8 +75,13 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         player.anchor.set(0.5);
         game.physics.enable(player, Phaser.Physics.ARCADE);
         player.body.collideWorldBounds = true;
-        player.body.gravity.set(0, 100);
+        player.body.gravity.set(0, 0);
         player.body.bounce.set(1);
+
+
+        var emitter = game.add.emitter(100, 100);
+        emitter.makeParticles('dirt', 0, 250, true, true);
+        emitter.start(false, 5000, 1000, 1000);
 
 
         game.camera.follow(player);
