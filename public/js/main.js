@@ -1,5 +1,5 @@
 var game, player, cursors;
-var circle, blocks;
+var circle, blocks, emitter;
 
 game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
     preload: function(){
@@ -15,8 +15,8 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         var options = {
             w: 50,
             h: 50,
-            xCount: 200,
-            yCount: 200,
+            xCount: 20,
+            yCount: 20,
             random: function(min, max){
                 return Math.round(Math.random() * (max - min)) + min;
             },
@@ -66,7 +66,8 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
 
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        // game.physics.enable(blocks.dirt, Phaser.Physics.ARCADE);
+        game.physics.enable(blocks.dirt, Phaser.Physics.ARCADE);
+        game.physics.enable(blocks.glass, Phaser.Physics.ARCADE);
 
 
 
@@ -79,9 +80,9 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         player.body.bounce.set(1);
 
 
-        var emitter = game.add.emitter(100, 100);
+        emitter = game.add.emitter(100, 100);
         emitter.makeParticles('dirt', 0, 250, true, true);
-        emitter.start(false, 5000, 1000, 1000);
+        emitter.start(false, 0, 1000, 1000);
 
 
         game.camera.follow(player);
@@ -92,9 +93,9 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
     },
     update: function(){
 
-        game.physics.arcade.collide(player, blocks.dirt, function(){
-            console.log('collide dirt');
-        });
+        game.physics.arcade.collide(emitter, blocks.glass);
+        game.physics.arcade.collide(emitter, blocks.dirt);
+
 
         if (cursors.up.isDown)
         {
