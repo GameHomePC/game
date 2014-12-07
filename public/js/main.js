@@ -70,14 +70,9 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         game.physics.enable(blocks.glass, Phaser.Physics.ARCADE);
 
 
+        player = new Player(game, 'player', 0.5).getPlayer();
 
-        player = game.add.sprite(50, 50, 'player');
-        player.scale.set(0.5);
-        player.anchor.set(0.5);
-        game.physics.enable(player, Phaser.Physics.ARCADE);
-        player.body.collideWorldBounds = true;
-        player.body.gravity.set(0, 0);
-        player.body.bounce.set(1);
+
 
 
         emitter = game.add.emitter(100, 100);
@@ -95,30 +90,11 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
 
         game.physics.arcade.collide(emitter, blocks.glass);
         game.physics.arcade.collide(emitter, blocks.dirt);
+        player.update();
 
-
-        if (cursors.up.isDown)
-        {
-            player.y -= 13;
-        }
-        else if (cursors.down.isDown)
-        {
-            player.y += 13;
-        }
-
-        if (cursors.left.isDown)
-        {
-            player.x -= 13;
-        }
-        else if (cursors.right.isDown)
-        {
-            player.x += 13;
-        }
     },
     render: function(){
 
-        game.debug.cameraInfo(game.camera, 32, 32);
-        game.debug.spriteCoords(player, 32, 500);
 
     }
 });

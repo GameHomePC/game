@@ -1,4 +1,4 @@
-var player = function (game, playerString, scale) {
+var Player = function (game, playerString, scale) {
     var x = game.world.randomX;
     var y = game.world.randomY;
 
@@ -16,10 +16,17 @@ var player = function (game, playerString, scale) {
     this.getPlayer = function(){
         this.player.anchor.set(this.center);
         this.player.scale.set(this.scale);
+
+        this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
+        this.player.body.collideWorldBounds = true;
+        this.player.body.gravity.set(0, 0);
+        this.player.body.bounce.set(1);
+
+        return this.player;
     };
 };
 
-player.prototype.update = function(){
+Player.prototype.update = function(){
     if(this.keyboard.left.isDown){
         this.player.position.x -= this.speed;
         this.player.scale.x = -this.scale;
