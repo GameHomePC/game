@@ -10,6 +10,7 @@ var Player = function (game, playerString, scale, num, layer) {
     this.center = 0.5;
     this.jumpTimer = 0;
     this.maxJump = 200;
+    this.jumpStatus = true;
 
     this.facing = false;
     this.player = this.game.add.sprite(x, y, playerString);
@@ -23,7 +24,7 @@ var Player = function (game, playerString, scale, num, layer) {
 
         this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.body.collideWorldBounds = true;
-        this.player.body.gravity.set(0, 0);
+        this.player.body.gravity.set(2);
         this.player.body.bounce.setTo(0, 0.2);
         this.player.body.setSize(32, 32, 0, 0);
 
@@ -62,12 +63,18 @@ Player.prototype.update = function(){
     }
 
 
-    if (this.jumpButton.isDown){
+    /* jumpButton */
+    if (this.jumpButton.isDown && this.jumpStatus == true){
+        this.jumpTimer += 10;
+        this.player.body.velocity.y = -200;
 
-        var number = this.player.body.velocity.y -= 10;
-
-        if (Math.abs(number) >= this.maxJump){
-            this.player.body.velocity.y = 0;
+        if (this.jumpTimer >= 300){
+            this.jumpTimer = 0;
+            this.jumpStatus = false;
         }
+    }
+
+    if (this.player.body.velocity.y <= 0 && !this.player.body.velocity.y >= -2){
+        this.jumpStatus = true;
     }
 };
