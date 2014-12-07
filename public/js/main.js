@@ -48,21 +48,18 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         game.physics.arcade.gravity.y = 250;
 
 
-        player = new Player(game, 'player', 1, 0);
+        player = new Player(game, 'player', 1, 0, layer);
         getPlayer = player.getPlayer();
 
         game.camera.follow(getPlayer);
         // game.camera.deadzone = new Phaser.Rectangle(deadZoneCamera.x, deadZoneCamera.y, deadZoneCamera.w, deadZoneCamera.h);
-
-        cursors = game.input.keyboard.createCursorKeys();
-
     },
     update: function(){
 
 
         player.update();
 
-        game.physics.arcade.collide(player, layer);
+
 
     },
     render: function(){

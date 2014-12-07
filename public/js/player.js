@@ -1,8 +1,9 @@
-var Player = function (game, playerString, scale, num) {
+var Player = function (game, playerString, scale, num, layer) {
     var x = game.world.randomX;
     var y = game.world.randomY;
 
     this.game = game;
+    this.layer = layer
     this.health = 100;
     this.speed = 5;
     this.scale = scale;
@@ -23,12 +24,15 @@ var Player = function (game, playerString, scale, num) {
         this.player.body.collideWorldBounds = true;
         this.player.body.gravity.set(0, 0);
         this.player.body.bounce.set(1);
+        this.player.body.setSize(20, 32, 5, 16);
 
         return this.player;
     };
 };
 
 Player.prototype.update = function(){
+    this.game.physics.arcade.collide(this.player, layer);
+
     /* keyboard */
     if(this.keyboard.left.isDown){
         this.player.position.x -= this.speed;
