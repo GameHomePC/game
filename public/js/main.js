@@ -1,4 +1,4 @@
-var game, player, cursors;
+var game, player, getPlayer, cursors;
 var circle, blocks, emitter;
 
 game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
@@ -70,9 +70,8 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         game.physics.enable(blocks.glass, Phaser.Physics.ARCADE);
 
 
-        player = new Player(game, 'player', 0.5).getPlayer();
-
-
+        player = new Player(game, 'player', 0.5);
+        getPlayer = player.getPlayer();
 
 
         emitter = game.add.emitter(100, 100);
@@ -80,7 +79,7 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         emitter.start(false, 0, 1000, 1000);
 
 
-        game.camera.follow(player);
+        game.camera.follow(getPlayer);
         game.camera.deadzone = new Phaser.Rectangle(200, 200, 600, 400);
 
         cursors = game.input.keyboard.createCursorKeys();
