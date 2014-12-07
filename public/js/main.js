@@ -63,8 +63,7 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
 
 
         }
-
-
+        
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.enable(blocks.dirt, Phaser.Physics.ARCADE);
         game.physics.enable(blocks.glass, Phaser.Physics.ARCADE);
