@@ -24,7 +24,7 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         game.load.image('glass', 'public/phaser_source/img/glass.png');
         game.load.image('background', 'public/phaser_source/img/background.png');
         game.load.image('tiles-1', 'public/phaser_source/img/tiles-1.png');
-        game.load.tilemap('levels', 'public/phaser_source/img/levels.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('levels', 'public/phaser_source/json/levels.json', null, Phaser.Tilemap.TILED_JSON);
 
     },
     create: function(){
@@ -41,11 +41,11 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         layer = map.createLayer('Tile Layer 1');
 
         //  Un-comment this on to see the collision tiles
-        layer.debug = true;
+        // layer.debug = true;
 
         layer.resizeWorld();
 
-        game.physics.arcade.gravity.y = 250;
+        game.physics.arcade.gravity.y = 9.8;
 
 
         player = new Player(game, 'player', 1, 0, layer);
