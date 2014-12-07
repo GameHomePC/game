@@ -52,10 +52,14 @@ Player.prototype.update = function(){
         this.facing = false;
     }
 
+
+    //console.log(this.jumpButton);
     /* jumpButton */
-    if (this.jumpButton.isDown && this.player.body.onFloor() && this.game.time.now > this.jumpTimer)
-    {
-        this.player.body.velocity.y = -250;
-        this.jumpTimer = this.game.time.now + 750;
-    }
+    /*if (this.jumpButton.isDown && this.jumpButton <= 300){
+        this.jumpTimer += 25;
+        this.player.body.velocity.y -= this.jumpTimer;
+
+        //this.jumpTimer = this.player.body.velocity.y;
+        console.log(this.jumpTimer);
+    }*/
 };
