@@ -2,8 +2,20 @@ var game, player, getPlayer, cursors;
 var circle, blocks, emitter;
 var w = window;
 
+var percent = function(value, percent){
+    return (value / 100) * percent;
+};
+
 var widthCanvas = 800,
-    heightCanvas = 600;
+    heightCanvas = 600,
+    deadZoneCamera = {
+        x: percent(widthCanvas, 10),
+        y: percent(heightCanvas, 10),
+        w: widthCanvas - (percent(widthCanvas, 10) * 2),
+        h: heightCanvas - (percent(heightCanvas, 10) * 2)
+    };
+
+console.log(deadZoneCamera);
 
 game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
     preload: function(){
@@ -30,13 +42,13 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
 
                 return { x: this.boundsX, y: this.boundsY };
             },
-            metre: function(percent){
-                return (this.yCount / 100) * percent;
+            metre: function(value, percent){
+                return (value / 100) * percent;
             }
         };
 
         var bounds = options.bounds();
-        var metre = options.metre(50);
+        var metre = options.metre(options.yCount, 50);
 
         game.world.setBounds(0, 0, bounds.x, bounds.y);
 
@@ -69,30 +81,18 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         }
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.physics.enable(blocks.dirt, Phaser.Physics.ARCADE);
-        game.physics.enable(blocks.glass, Phaser.Physics.ARCADE);
-
 
         player = new Player(game, 'player', 0.5, 0);
         getPlayer = player.getPlayer();
 
-
-        emitter = game.add.emitter(500, 100);
-        emitter.makeParticles('dirt', 0, 250, true, true);
-        emitter.start(false, 0, 100, 2000);
-
-
         game.camera.follow(getPlayer);
-        game.camera.deadzone = new Phaser.Rectangle(200, 200, 600, 400);
+        game.camera.deadzone = new Phaser.Rectangle(deadZoneCamera.x, deadZoneCamera.y, deadZoneCamera.w, deadZoneCamera.h);
 
         cursors = game.input.keyboard.createCursorKeys();
 
     },
     update: function(){
 
-        game.physics.arcade.collide(emitter, emitter);
-        game.physics.arcade.collide(emitter, blocks.glass);
-        game.physics.arcade.collide(emitter, blocks.dirt);
         player.update();
 
     },
