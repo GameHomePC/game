@@ -58,5 +58,5 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-align: center;
 }
 #game canvas {
-  margin: 20px auto;
+  margin: 0 auto;
 }
