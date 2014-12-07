@@ -16,7 +16,7 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
             w: 50,
             h: 50,
             xCount: 20,
-            yCount: 20,
+            yCount: 16,
             random: function(min, max){
                 return Math.round(Math.random() * (max - min)) + min;
             },
@@ -32,7 +32,7 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         };
 
         var bounds = options.bounds();
-        var metre = options.metre(20);
+        var metre = options.metre(50);
 
         game.world.setBounds(0, 0, bounds.x, bounds.y);
 
@@ -74,9 +74,9 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         getPlayer = player.getPlayer();
 
 
-        emitter = game.add.emitter(100, 100);
+        emitter = game.add.emitter(500, 100);
         emitter.makeParticles('dirt', 0, 250, true, true);
-        emitter.start(false, 0, 1000, 1000);
+        emitter.start(false, 0, 100, 2000);
 
 
         game.camera.follow(getPlayer);
@@ -87,6 +87,7 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
     },
     update: function(){
 
+        game.physics.arcade.collide(emitter, emitter);
         game.physics.arcade.collide(emitter, blocks.glass);
         game.physics.arcade.collide(emitter, blocks.dirt);
         player.update();
