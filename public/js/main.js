@@ -18,13 +18,13 @@ var widthCanvas = 800,
 game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
     preload: function(){
 
-        game.load.spritesheet('player', 'public/phaser_source/img/player.png', 200, 200, 4);
+        game.load.spritesheet('player', 'public/phaser_source/img/droid.png', 32, 32, 4);
         game.load.image('dirt', 'public/phaser_source/img/dirt.png');
         game.load.image('cloud', 'public/phaser_source/img/cloud.png');
         game.load.image('glass', 'public/phaser_source/img/glass.png');
         game.load.image('background', 'public/phaser_source/img/background.png');
         game.load.image('tiles-1', 'public/phaser_source/img/tiles-1.png');
-        game.load.tilemap('levels', 'public/phaser_source/json/levels.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('levels', 'public/phaser_source/img/levels.json', null, Phaser.Tilemap.TILED_JSON);
 
     },
     create: function(){
@@ -38,12 +38,17 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         map = game.add.tilemap('levels');
         map.addTilesetImage('tiles-1');
         map.setCollisionByExclusion([ 13, 14, 15, 16, 46, 47, 48, 49, 50, 51 ]);
-
         layer = map.createLayer('Tile Layer 1');
+
+        //  Un-comment this on to see the collision tiles
+        layer.debug = true;
+
         layer.resizeWorld();
 
+        game.physics.arcade.gravity.y = 250;
 
-        player = new Player(game, 'player', 0.5, 0);
+
+        player = new Player(game, 'player', 1, 0);
         getPlayer = player.getPlayer();
 
         game.camera.follow(getPlayer);
@@ -54,7 +59,10 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
     },
     update: function(){
 
+
         player.update();
+
+        game.physics.arcade.collide(player, layer);
 
     },
     render: function(){
