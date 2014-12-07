@@ -7,12 +7,14 @@ var Player = function (game, playerString, scale, num) {
     this.speed = 5;
     this.scale = scale;
     this.center = 0.5;
+    this.jumpTimer = 0;
 
     this.facing = false;
     this.player = this.game.add.sprite(x, y, playerString);
     this.anim = this.player.animations.add('turn', [num], 20, true);
     this.animActive = this.player.animations.add('active');
-    this.keyboard = game.input.keyboard.createCursorKeys();
+    this.keyboard = this.game.input.keyboard.createCursorKeys();
+    this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     this.getPlayer = function(){
         this.player.anchor.set(this.center);
         this.player.scale.set(this.scale);
@@ -27,6 +29,7 @@ var Player = function (game, playerString, scale, num) {
 };
 
 Player.prototype.update = function(){
+    /* keyboard */
     if(this.keyboard.left.isDown){
         this.player.position.x -= this.speed;
         this.player.scale.x = -this.scale;
@@ -49,23 +52,10 @@ Player.prototype.update = function(){
         this.facing = false;
     }
 
-    if(this.keyboard.up.isDown){
-        this.player.position.y -= this.speed;
-
-        if(this.facing == false){
-            this.animActive.play(30, true);
-            this.facing = true;
-        }
-
-    } else if(this.keyboard.down.isDown){
-        this.player.position.y += this.speed;
-
-        if(this.facing == false){
-            this.animActive.play(30, true);
-            this.facing = true;
-        }
-    } else {
-        this.anim.play('turn');
-        this.facing = false;
+    /* jumpButton */
+    if (this.jumpButton.isDown && this.player.body.onFloor() && this.game.time.now > this.jumpTimer)
+    {
+        this.player.body.velocity.y = -250;
+        this.jumpTimer = this.game.time.now + 750;
     }
 };
