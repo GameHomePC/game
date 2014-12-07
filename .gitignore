@@ -2,3 +2,4 @@ node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node
 node_modules/
 public/.sass-cache/
 .idea/
+public/vendor/bower_components/phaser/
