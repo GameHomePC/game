@@ -25,12 +25,16 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         game.load.image('background', 'public/phaser_source/img/background.png');
         game.load.image('tiles-1', 'public/phaser_source/img/tiles-1.png');
         game.load.tilemap('levels', 'public/phaser_source/json/levels.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.pack('audio', 'public/phaser_source/json/audio.json', null, this);
 
     },
     create: function(){
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.stage.backgroundColor = '#000000';
+
+        /* audio */
+        game.sound.play('boden');
 
         bg = game.add.tileSprite(0, 0, widthCanvas, heightCanvas, 'background');
         bg.fixedToCamera = true;

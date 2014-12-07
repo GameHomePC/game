@@ -33,9 +33,7 @@ var Player = function (game, playerString, scale, num, layer) {
 };
 
 Player.prototype.update = function(){
-    this.game.physics.arcade.collide(this.player, this.layer, function(){
-        console.log(arguments);
-    });
+    this.game.physics.arcade.collide(this.player, this.layer);
 
     this.player.body.velocity.x = 0;
 
@@ -62,19 +60,16 @@ Player.prototype.update = function(){
         this.facing = false;
     }
 
-
     /* jumpButton */
-    if (this.jumpButton.isDown && this.jumpStatus == true){
-        this.jumpTimer += 10;
-        this.player.body.velocity.y = -200;
-
-        if (this.jumpTimer >= 300){
-            this.jumpTimer = 0;
-            this.jumpStatus = false;
-        }
+    if(this.player.body.velocity.y >= -300) {
+        this.jumpStatus = true;
+    } else {
+        this.jumpStatus = false;
     }
 
-    if (this.player.body.velocity.y <= 0 && !this.player.body.velocity.y >= -2){
-        this.jumpStatus = true;
+    if (this.jumpButton.isDown){
+        if(this.jumpStatus == true){
+            this.player.body.velocity.y -= 50;
+        }
     }
 };
