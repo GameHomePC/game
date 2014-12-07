@@ -1,0 +1,5 @@
+node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/base64-arraybuffer/.npmignore
+node_modules/
+public/vendor/bower_components/
+public/.sass-cache/
+.idea/
