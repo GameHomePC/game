@@ -86,7 +86,7 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         getPlayer = player.getPlayer();
 
         game.camera.follow(getPlayer);
-        game.camera.deadzone = new Phaser.Rectangle(deadZoneCamera.x, deadZoneCamera.y, deadZoneCamera.w, deadZoneCamera.h);
+        // game.camera.deadzone = new Phaser.Rectangle(deadZoneCamera.x, deadZoneCamera.y, deadZoneCamera.w, deadZoneCamera.h);
 
         cursors = game.input.keyboard.createCursorKeys();
 
