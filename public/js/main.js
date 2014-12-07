@@ -1,13 +1,14 @@
 var game, player, getPlayer, cursors;
 var circle, blocks, emitter;
+var w = window;
 
-game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
+game = new Phaser.Game(w.innerWidth, w.innerHeight, Phaser.AUTO, 'game', {
     preload: function(){
 
         game.load.spritesheet('player', 'public/images/phaser/player.png', 200, 200, 4);
-        game.load.image('dirt', 'public/images/phaser/dirt.png')
-        game.load.image('cloud', 'public/images/phaser/cloud.png')
-        game.load.image('glass', 'public/images/phaser/glass.png')
+        game.load.image('dirt', 'public/images/phaser/dirt.png');
+        game.load.image('cloud', 'public/images/phaser/cloud.png');
+        game.load.image('glass', 'public/images/phaser/glass.png');
 
     },
     create: function(){
@@ -15,8 +16,8 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         var options = {
             w: 50,
             h: 50,
-            xCount: 20,
-            yCount: 16,
+            xCount: 100,
+            yCount: 100,
             random: function(min, max){
                 return Math.round(Math.random() * (max - min)) + min;
             },
