@@ -98,6 +98,7 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
     },
     render: function(){
 
+        game.debug.cameraInfo(game.camera, 32, 32);
 
     }
 });
