@@ -70,7 +70,7 @@ game = new Phaser.Game(1000, 800, Phaser.WEBGL, 'game', {
         game.physics.enable(blocks.glass, Phaser.Physics.ARCADE);
 
 
-        player = new Player(game, 'player', 0.5);
+        player = new Player(game, 'player', 0.5, 0);
         getPlayer = player.getPlayer();
 
 

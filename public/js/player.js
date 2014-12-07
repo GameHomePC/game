@@ -1,4 +1,4 @@
-var Player = function (game, playerString, scale) {
+var Player = function (game, playerString, scale, num) {
     var x = game.world.randomX;
     var y = game.world.randomY;
 
@@ -10,7 +10,7 @@ var Player = function (game, playerString, scale) {
 
     this.facing = false;
     this.player = this.game.add.sprite(x, y, playerString);
-    this.anim = this.player.animations.add('turn', [3], 20, true);
+    this.anim = this.player.animations.add('turn', [num], 20, true);
     this.animActive = this.player.animations.add('active');
     this.keyboard = game.input.keyboard.createCursorKeys();
     this.getPlayer = function(){
