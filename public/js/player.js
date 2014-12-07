@@ -48,4 +48,24 @@ Player.prototype.update = function(){
         this.anim.play('turn');
         this.facing = false;
     }
+
+    if(this.keyboard.up.isDown){
+        this.player.position.y -= this.speed;
+
+        if(this.facing == false){
+            this.animActive.play(30, true);
+            this.facing = true;
+        }
+
+    } else if(this.keyboard.down.isDown){
+        this.player.position.y += this.speed;
+
+        if(this.facing == false){
+            this.animActive.play(30, true);
+            this.facing = true;
+        }
+    } else {
+        this.anim.play('turn');
+        this.facing = false;
+    }
 };
