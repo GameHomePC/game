@@ -2,7 +2,10 @@ var game, player, getPlayer, cursors;
 var circle, blocks, emitter;
 var w = window;
 
-game = new Phaser.Game(w.innerWidth, w.innerHeight, Phaser.AUTO, 'game', {
+var widthCanvas = 800,
+    heightCanvas = 600;
+
+game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
     preload: function(){
 
         game.load.spritesheet('player', 'public/images/phaser/player.png', 200, 200, 4);
