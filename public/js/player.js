@@ -1,4 +1,4 @@
-var Player = function (game, playerString, scale, num, layer) {
+var Player = function (game, playerString, scale, array, layer) {
     var x = game.world.randomX;
     var y = game.world.randomY;
 
@@ -14,7 +14,7 @@ var Player = function (game, playerString, scale, num, layer) {
 
     this.facing = false;
     this.player = this.game.add.sprite(x, y, playerString);
-    this.anim = this.player.animations.add('turn', [num], 20, true);
+    this.anim = this.player.animations.add('turn', array, 20, true);
     this.animActive = this.player.animations.add('active');
     this.keyboard = this.game.input.keyboard.createCursorKeys();
     this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -38,7 +38,7 @@ Player.prototype.update = function(){
     this.player.body.velocity.x = 0;
 
     /* keyboard */
-    if(this.keyboard.left.isDown){
+    if(this.game.input.keyboard.isDown(Phaser.Keyboard.A) || this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
         this.player.body.velocity.x -= this.speed;
         this.player.scale.x = -this.scale;
 
@@ -47,7 +47,7 @@ Player.prototype.update = function(){
             this.facing = true;
         }
 
-    } else if(this.keyboard.right.isDown){
+    } else if(this.game.input.keyboard.isDown(Phaser.Keyboard.D) || this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
         this.player.body.velocity.x += this.speed;
         this.player.scale.x = this.scale;
 

@@ -51,7 +51,7 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
 
         game.physics.arcade.gravity.y = 1000;
 
-        player = new Player(game, 'player', 1, 0, layer);
+        player = new Player(game, 'player', 1, [0], layer);
         getPlayer = player.getPlayer();
 
         game.camera.follow(getPlayer);
