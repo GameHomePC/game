@@ -60,3 +60,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 #game canvas {
   margin: 0 auto;
 }
+
+a {
+  color: #000000;
+  font-size: 20px;
+}
