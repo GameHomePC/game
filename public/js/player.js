@@ -60,16 +60,11 @@ Player.prototype.update = function(){
         this.facing = false;
     }
 
-    /* jumpButton */
-    if(this.player.body.velocity.y >= -300) {
-        this.jumpStatus = true;
-    } else {
-        this.jumpStatus = false;
-    }
+    console.log(this.player.body.onFloor());
 
-    if (this.jumpButton.isDown){
-        if(this.jumpStatus == true){
-            this.player.body.velocity.y -= 50;
-        }
+    /* jumpButton */
+
+    if (this.jumpButton.isDown && this.player.body.onFloor()){
+        this.player.body.velocity.y -= 450;
     }
 };
