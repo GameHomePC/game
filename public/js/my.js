@@ -1,7 +1,7 @@
 var gameX = 600, gameY = 400;
 var game, world;
 var player;
-var bg, dirts;
+var bg, dirts, grass;
 
 var WorldGen = function(game, xc, yc, w, h){
     this.game = game;
@@ -21,22 +21,40 @@ var WorldGen = function(game, xc, yc, w, h){
         this.game.world.setBounds(0, 0, this.boundX, this.boundY);
 
         var metre = this.percent(this.yc, 50);
-        var dirt;
+        var dirt, gras;
 
         dirts = this.game.add.group();
+        grass = this.game.add.group();
 
         for (var x = 0; x < this.xc; x+=1){
             for (var y = 0; y < this.yc; y+=1){
-                if (y >= metre){
+                if (y == metre){
+                    gras = grass.create(x * this.w, y * this.h, 'grass');
+
+                    this.game.physics.enable(gras, Phaser.Physics.ARCADE);
+
+                    gras.width = this.w;
+                    gras.height = this.h;
+                    gras.body.collideWorldBounds = true;
+                    gras.body.allowGravity = false;
+                    gras.body.bounce.setTo(0.5);
+                    gras.body.immovable = true;
+                }
+
+                if (y > metre){
                     dirt = dirts.create(x * this.w, y * this.h, 'dirt');
 
                     this.game.physics.enable(dirt, Phaser.Physics.ARCADE);
 
+                    dirt.width = this.w;
+                    dirt.height = this.h;
                     dirt.body.collideWorldBounds = true;
                     dirt.body.allowGravity = false;
                     dirt.body.bounce.setTo(0.5);
                     dirt.body.immovable = true;
                 }
+
+
             }
 
             metre += this.rand(-1, 1);
@@ -52,6 +70,7 @@ game = new Phaser.Game(gameX, gameY, Phaser.WEBGL, 'game', {
         game.load.spritesheet('player', 'public/phaser_source/img/droid.png', 32, 32, 4);
         game.load.image('background', 'public/phaser_source/img/background.png');
         game.load.image('dirt', 'public/phaser_source/img/dirt.png');
+        game.load.image('grass', 'public/phaser_source/img/glass.png');
 
     },
     create: function(){
@@ -78,6 +97,7 @@ game = new Phaser.Game(gameX, gameY, Phaser.WEBGL, 'game', {
     update: function(){
 
         game.physics.arcade.collideSpriteVsGroup(player, dirts);
+        game.physics.arcade.collideSpriteVsGroup(player, grass);
         game.physics.arcade.moveToPointer(player, 200);
 
     },
