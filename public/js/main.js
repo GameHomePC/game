@@ -54,6 +54,8 @@ game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
         player = new Player(game, 'player', 1, [0], layer);
         getPlayer = player.getPlayer();
 
+        console.log(getPlayer.body);
+
         game.camera.follow(getPlayer);
         // game.camera.deadzone = new Phaser.Rectangle(deadZoneCamera.x, deadZoneCamera.y, deadZoneCamera.w, deadZoneCamera.h);
     },
