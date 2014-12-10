@@ -1,69 +1,257 @@
-var game, player, getPlayer, cursors;
-var circle, blocks, emitter, bg, map, layer;
-var w = window;
+var Map = function(game, plugin){
+    this.game = game;
+    this.plugin = plugin || false;
+    this.maps = [];
 
-var percent = function(value, percent){
-    return (value / 100) * percent;
-};
+    this.load = function(maps){
+        var _this = this;
+        var cacheKey, mapsLen = maps.length;
+        var x, y;
 
-var widthCanvas = 600,
-    heightCanvas = 480,
-    deadZoneCamera = {
-        x: percent(widthCanvas, 10),
-        y: percent(heightCanvas, 10),
-        w: widthCanvas - (percent(widthCanvas, 10) * 2),
-        h: heightCanvas - (percent(heightCanvas, 10) * 2)
+        if (maps && maps.length){
+            _this.maps = maps;
+
+            mapsLen = _this.maps.length;
+
+            if (_this.plugin){
+                _this.game.add.plugin(Phaser.Plugin.Tiled);
+
+                cacheKey = Phaser.Plugin.Tiled.utils.cacheKey;
+
+                for (x = 0; x < mapsLen; x+=1){
+                    (function(data){
+                        var map = data.map;
+                        var tiles = data.tiles;
+                        var tilesLen;
+
+                        _this.game.load.tiledmap(cacheKey(map.key, 'tiledmap'), map.url, null, map.type || Phaser.Tilemap.TILED_JSON);
+                        if (tiles && tiles.length){
+                            tilesLen = tiles.length;
+                            for (y = 0; y < tilesLen; y+=1){
+                                (function(key, dataTile){
+
+                                    _this.game.load.image(cacheKey(key, 'tileset', dataTile.name), dataTile.url);
+
+                                })(map.key, tiles[y]);
+                            }
+                        }
+
+                    })(_this.maps[x]);
+                }
+
+            } else {
+
+                for (x = 0; x < mapsLen; x+=1){
+                    (function(data){
+                        var map = data.map;
+                        var tiles = data.tiles;
+                        var tilesLen;
+
+                        _this.game.load.tilemap(map.key, map.url, null, map.type || Phaser.Tilemap.TILED_JSON);
+
+                        if (tiles && tiles.length){
+                            tilesLen = tiles.length;
+                            for (y = 0; y < tilesLen; y+=1){
+                                (function(dataTile){
+
+                                    _this.game.load.image(dataTile.name, dataTile.url);
+
+                                })(tiles[y]);
+                            }
+                        }
+
+                    })(_this.maps[x]);
+                }
+
+            }
+        } else {
+            _this.maps = [];
+        }
+
+        return this;
     };
 
-game = new Phaser.Game(widthCanvas, heightCanvas, Phaser.AUTO, 'game', {
-    preload: function(){
+    this.createMaps = function(index, layer, collisions){
+        var _this = this;
+        var mapsCreate = _this.mapsCreate = [];
+        var x, y, mapsLen;
 
-        game.load.spritesheet('player', 'public/phaser_source/img/droid.png', 32, 32, 4);
-        game.load.image('dirt', 'public/phaser_source/img/dirt.png');
-        game.load.image('cloud', 'public/phaser_source/img/cloud.png');
-        game.load.image('glass', 'public/phaser_source/img/glass.png');
-        game.load.image('background', 'public/phaser_source/img/background.png');
-        game.load.image('tiles-1', 'public/phaser_source/img/tiles-1.png');
-        game.load.tilemap('levels', 'public/phaser_source/json/levels.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.pack('audio', 'public/phaser_source/json/audio.json', null, this);
+        layer = layer || 0;
+        collisions = collisions || {};
 
-    },
-    create: function(){
+        if (_this.maps && _this.maps.length){
+            mapsLen = _this.maps.length;
+            if (index == typeof 'number'){
+                var mapIndex = _this.maps[index] || _this.maps[0];
+                if (mapIndex){
+                    var map = mapIndex.map;
+                    var tiles = mapIndex.tiles;
+                    var tilesLen, mapAdd;
 
-        game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.stage.backgroundColor = '#000000';
+                    if (!_this.plugin){
 
-        /* audio */
-        game.sound.play('boden');
+                        mapAdd = _this.game.add.tilemap(map.key);
 
-        bg = game.add.tileSprite(0, 0, widthCanvas, heightCanvas, 'background');
-        bg.fixedToCamera = true;
+                        if (tiles && tiles.length){
+                            tilesLen = tiles.length;
+                            for (y = 0; y < tilesLen; y+=1){
+                                (function(mapAdd, dataTile){
 
-        map = game.add.tilemap('levels');
-        map.addTilesetImage('tiles-1');
-        map.setCollisionByExclusion([ 13, 14, 15, 16, 46, 47, 48, 49, 50, 51 ]);
-        layer = map.createLayer('Tile Layer 1');
+                                    mapAdd.addTilesetImage(dataTile.name);
 
-        //  Un-comment this on to see the collision tiles
-        // layer.debug = true;
+                                })(mapAdd, tiles[y]);
+                            }
+                        }
 
-        layer.resizeWorld();
+                        mapsCreate.push({
+                            key: map.key,
+                            map: mapAdd
+                        });
 
-        game.physics.arcade.gravity.y = 1000;
+                    } else {
 
-        player = new Player(game, 'player', 1, [0], layer);
-        getPlayer = player.getPlayer();
+                        mapAdd = _this.game.add.tiledmap(map.key);
+                        mapsCreate.push({
+                            key: map.key,
+                            map: mapAdd
+                        });
 
-        console.log(getPlayer.body);
+                    }
 
-        game.camera.follow(getPlayer);
-        // game.camera.deadzone = new Phaser.Rectangle(deadZoneCamera.x, deadZoneCamera.y, deadZoneCamera.w, deadZoneCamera.h);
-    },
-    update: function(){
-        player.update();
-    },
-    render: function(){
+                }
+            } else {
+                for (x = 0; x < mapsLen; x+=1){
+                    (function(data){
+                        var map = data.map;
+                        var tiles = data.tiles;
+                        var tilesLen, mapAdd;
+                        var layerx;
 
-        game.debug.cameraInfo(game.camera, 32, 32);
-    }
-});
+                        if (!_this.plugin){
+
+                            mapAdd = _this.game.add.tilemap(map.key);
+
+                            for (var c in collisions){
+                                if (collisions.hasOwnProperty(c)){
+                                    mapAdd[c](collisions[c]);
+                                }
+                            }
+
+                            if (tiles && tiles.length){
+                                tilesLen = tiles.length;
+                                for (y = 0; y < tilesLen; y+=1){
+                                    (function(mapAdd, dataTile){
+
+                                        mapAdd.addTilesetImage(dataTile.name);
+
+                                    })(mapAdd, tiles[y]);
+                                }
+                            }
+
+                            layerx = mapAdd.createLayer(layer);
+                            layerx.resizeWorld();
+
+
+                            mapsCreate.push({
+                                key: map.key,
+                                map: mapAdd,
+                                layer: layerx
+                            });
+
+                        } else {
+
+                            mapAdd = _this.game.add.tiledmap(map.key);
+                            mapsCreate.push({
+                                key: map.key,
+                                map: mapAdd
+                            });
+
+                        }
+
+
+                    })(_this.maps[x]);
+                }
+            }
+
+        }
+
+        return this;
+    };
+
+    this.getMap = function(index){
+        index = index || 0;
+        return this.mapsCreate[index];
+    };
+
+};
+
+
+
+var init = function(){
+    var game, physics, renderer, parent, cursors;
+    var w, h, cacheKey, map, layer;
+    var player, playerMaterial, worldMaterial, contactMaterial;
+    var mapsLoader, maps, linux;
+
+    physics = Phaser.Physics.P2JS;
+    renderer = Phaser.Auto;
+    parent = document.getElementById('game');
+    w = 1000;
+    h = 700;
+
+    game = new Phaser.Game(w, h, renderer, parent, {
+        preload: function(){
+
+            mapsLoader = new Map(game, true);
+            mapsLoader.load([{
+                map: {
+                    key: 'map-1',
+                    url: 'public/game/json/level-1.json'
+                },
+                tiles: [{
+                    name: 'terrain',
+                    url: 'public/game/img/terrain.png'
+                }]
+            }]);
+
+            game.add.plugin(Phaser.Plugin.Debug);
+
+            game.load.image('player', 'public/game/img/player.png');
+            game.load.image('linux', 'public/game/img/linux.png');
+            game.load.physics('dataP', 'public/game/json/polygon.json');
+
+        },
+        create: function(){
+
+            game.physics.startSystem(physics);
+            game.physics.p2.gravity.y = 500;
+
+            map = mapsLoader.createMaps(0, 'layer', {
+                setCollisionByExclusion: []
+            }).getMap();
+
+
+
+            linux = game.add.sprite(300, 300, 'linux');
+            game.physics.p2.enable(linux, true);
+
+            linux.body.clearShapes();
+            linux.body.loadPolygon('dataP', 'linux');
+
+            player = game.add.sprite(100, 100, 'player');
+            game.physics.p2.enable(player, true);
+
+            game.physics.p2.convertTiledCollisionObjects(map.map, 'collision');
+            game.physics.p2.setBoundsToWorld(true, true, true, true, false);
+            game.camera.follow(player);
+
+        },
+        update: function(){
+
+
+
+        }
+    });
+};
+
+$(init);
