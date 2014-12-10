@@ -17,21 +17,8 @@
          "name":"collision",
          "objects":[
                 {
-                 "height":0,
+                 "height":32,
                  "name":"",
-                 "polygon":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":1216,
-                         "y":416
-                        }, 
-                        {
-                         "x":0,
-                         "y":416
-                        }],
                  "properties":
                     {
 
@@ -39,34 +26,13 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":1376,
                  "x":0,
-                 "y":992
+                 "y":1408
                 }, 
                 {
-                 "height":0,
+                 "height":1408,
                  "name":"",
-                 "polyline":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":1344,
-                         "y":0
-                        }, 
-                        {
-                         "x":1344,
-                         "y":32
-                        }, 
-                        {
-                         "x":0,
-                         "y":32
-                        }, 
-                        {
-                         "x":0,
-                         "y":0
-                        }],
                  "properties":
                     {
 
@@ -74,9 +40,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":32,
                  "x":0,
-                 "y":640
+                 "y":0
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -95,7 +61,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"..\/img\/terrain.png",
+         "image":"../img/terrain.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
