@@ -147,7 +147,7 @@ var collisionPacker = function(game){
             game.physics.p2.gravity.y = 200;
             game.physics.p2.setImpactEvents(true);
 
-            game.physics.p2.enable(player, true);
+            game.physics.p2.enable(player, false);
 
 
             packer.objectCollision(map, 'collision', true);
@@ -161,7 +161,7 @@ var collisionPacker = function(game){
                     var data = objectCoin[x];
 
                     coin = coins.create(data.x + 16, data.y + 16, 'coin');
-                    game.physics.p2.enable(coin, true);
+                    game.physics.p2.enable(coin, false);
                     coin.body.setCircle(16);
                     coin.body.damping = 0;
                     coin.body.static = true;
