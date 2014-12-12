@@ -452,6 +452,21 @@
                  "width":32,
                  "x":192,
                  "y":416
+                }, 
+                {
+                 "ellipse":true,
+                 "height":32,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1888,
+                 "y":1376
                 }],
          "opacity":1,
          "type":"objectgroup",

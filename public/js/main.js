@@ -161,7 +161,7 @@ var collisionPacker = function(game){
                 for (var x = 0, len = objectCoin.length; x < len; x+=1){
                     var data = objectCoin[x];
 
-                    coin = coins.create(data.x + data.width, data.y + data.height, 'coin');
+                    coin = coins.create(data.x, data.y, 'coin');
                     coin.animations.add('coin');
                     coin.animations.play('coin', 15, true);
                 }
