@@ -28,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
-              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="270">
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -38,18 +38,35 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8687431" vertical-offset="1980" max-vertical-offset="3930">
-              <caret line="244" column="50" selection-start-line="244" selection-start-column="50" selection-end-line="244" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.53281426" vertical-offset="2176" max-vertical-offset="3090">
+              <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/World.js">
+      <file leaf-file-name="Tilemap.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/tilemap/Tilemap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="22775" max-vertical-offset="29430">
-              <caret line="1541" column="4" selection-start-line="1541" selection-start-column="4" selection-end-line="1541" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="13175" max-vertical-offset="28440">
+              <caret line="893" column="4" selection-start-line="893" selection-start-column="4" selection-end-line="893" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coin.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/game/img/coin.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Body.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/Body.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="14195" max-vertical-offset="26730">
+              <caret line="952" column="4" selection-start-line="952" selection-start-column="4" selection-end-line="952" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -58,9 +75,32 @@
       <file leaf-file-name="level-1.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/game/json/level-1.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-40.0" vertical-offset="555" max-vertical-offset="1785">
-              <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4050" max-vertical-offset="7410">
+              <caret line="272" column="9" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="21" />
+              <folding>
+                <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+                <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+                <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,14 +118,14 @@
         <option value="$PROJECT_DIR$/public/config.rb" />
         <option value="$PROJECT_DIR$/public/sass/main.scss" />
         <option value="$PROJECT_DIR$/public/map/json/world.json" />
-        <option value="$PROJECT_DIR$/public/vendor/bower_components/phaser-tiled/phaser-tiled.js" />
         <option value="$PROJECT_DIR$/public/game/json/level-1.tmx" />
         <option value="$PROJECT_DIR$/public/vendor/bower_components/phaser-debug/phaser-debug.js" />
-        <option value="$PROJECT_DIR$/public/game/json/level-1.json" />
         <option value="$PROJECT_DIR$/public/vendor/bower_components/zlib/zlib.min.js" />
         <option value="$PROJECT_DIR$/public/vendor/bower_components/require/require.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/public/game/json/polygon.json" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/public/vendor/bower_components/phaser-tiled/phaser-tiled.js" />
+        <option value="$PROJECT_DIR$/public/game/json/level-1.json" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
@@ -123,6 +163,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -137,7 +178,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="p2js" />
+              <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -147,7 +188,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="p2js" />
+              <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -161,7 +202,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="p2js" />
+              <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -183,7 +224,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="p2js" />
+              <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -201,7 +242,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="p2js" />
+              <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -213,35 +254,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="p2js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="p2js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="audio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,10 +272,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OpenServer\domains\game\public\game\img" />
+      <recent name="D:\OpenServer\domains\game\public\game\json" />
       <recent name="D:\OpenServer\domains\p2js\public\game\json" />
       <recent name="D:\OpenServer\domains\p2js\public\game\img" />
       <recent name="D:\OpenServer\domains\p2js\public\img" />
-      <recent name="D:\OpenServer\domains\p2js\public\map\json" />
     </key>
   </component>
   <component name="RunManager">
@@ -278,15 +297,15 @@
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -314,7 +333,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25772098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27635783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -345,9 +364,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2550586" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -371,6 +390,274 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/game/json/level-1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2115" max-vertical-offset="7410">
+          <caret line="168" column="21" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="21" />
+          <folding>
+            <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="270">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2850">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game/img/coin.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser-tiled/phaser-tiled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30298" max-vertical-offset="82260">
+          <caret line="2046" column="49" selection-start-line="2046" selection-start-column="49" selection-end-line="2046" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/Body.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14195" max-vertical-offset="26730">
+          <caret line="952" column="4" selection-start-line="952" selection-start-column="4" selection-end-line="952" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game/json/level-1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2115" max-vertical-offset="7410">
+          <caret line="168" column="21" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="21" />
+          <folding>
+            <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4275">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game/json/polygon.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="3930">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/World.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22775" max-vertical-offset="29430">
+          <caret line="1541" column="4" selection-start-line="1541" selection-start-column="4" selection-end-line="1541" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game/json/level-1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3495" max-vertical-offset="3585">
+          <caret line="233" column="1" selection-start-line="233" selection-start-column="1" selection-end-line="233" selection-end-column="1" />
+          <folding>
+            <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3930">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/World.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22775" max-vertical-offset="29430">
+          <caret line="1541" column="4" selection-start-line="1541" selection-start-column="4" selection-end-line="1541" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game/json/level-1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="1275">
+          <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+          <folding>
+            <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3930">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/World.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22775" max-vertical-offset="29430">
+          <caret line="1541" column="4" selection-start-line="1541" selection-start-column="4" selection-end-line="1541" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game/json/level-1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="1275">
+          <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+          <folding>
+            <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
@@ -383,7 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="8402" max-vertical-offset="82260">
           <caret line="575" column="0" selection-start-line="575" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -399,7 +685,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="675">
           <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding />
+          <folding>
+            <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -456,13 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/jquery/src/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.20608108" vertical-offset="122" max-vertical-offset="714">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/sass/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="566">
@@ -492,73 +794,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/loader/Loader.js">
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/tilemap/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6047" max-vertical-offset="28320">
-          <caret line="419" column="42" selection-start-line="419" selection-start-column="42" selection-end-line="419" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser-tiled/phaser-tiled.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8402" max-vertical-offset="82260">
-          <caret line="575" column="0" selection-start-line="575" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.33295712" vertical-offset="3110" max-vertical-offset="5985">
+          <caret line="231" column="4" selection-start-line="231" selection-start-column="4" selection-end-line="231" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/game/json/polygon.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.034207527" vertical-offset="0" max-vertical-offset="2280">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="3930">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/tilemap/TilemapLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4490" max-vertical-offset="17475">
+          <caret line="333" column="10" selection-start-line="333" selection-start-column="10" selection-end-line="333" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/World.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295712" vertical-offset="11735" max-vertical-offset="29430">
+          <caret line="802" column="4" selection-start-line="802" selection-start-column="4" selection-end-line="802" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/typescript/phaser.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295712" vertical-offset="61355" max-vertical-offset="83760">
+          <caret line="4110" column="10" selection-start-line="4110" selection-start-column="10" selection-end-line="4110" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/Body.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33295712" vertical-offset="3755" max-vertical-offset="26730">
-          <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/tilemap/Tile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33295712" vertical-offset="3110" max-vertical-offset="5985">
-          <caret line="231" column="4" selection-start-line="231" selection-start-column="4" selection-end-line="231" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="13925" max-vertical-offset="26730">
+          <caret line="952" column="4" selection-start-line="952" selection-start-column="4" selection-end-line="952" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/game/json/level-1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-40.0" vertical-offset="555" max-vertical-offset="1785">
-          <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4050" max-vertical-offset="7410">
+          <caret line="272" column="9" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="21" />
+          <folding>
+            <marker date="1418396831266" expanded="true" signature="30138:30438" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30265:30297" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30467:30814" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30576:30636" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="30841:31189" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="30953:31015" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31219:31567" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31328:31391" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31588:31936" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="31708:31765" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="31936:32284" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32084:32138" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32306:32654" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32458:32505" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="32684:33032" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="32831:32870" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33059:33407" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33198:33247" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33439:33787" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33563:33622" placeholder="{...}" />
+            <marker date="1418396831266" expanded="true" signature="33815:34121" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+            <marker date="1418396831266" expanded="true" signature="33945:33993" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/tilemap/Tilemap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="13175" max-vertical-offset="28440">
+          <caret line="893" column="4" selection-start-line="893" selection-start-column="4" selection-end-line="893" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/p2/World.js">
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/physics/arcade/World.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="22775" max-vertical-offset="29430">
-          <caret line="1541" column="4" selection-start-line="1541" selection-start-column="4" selection-end-line="1541" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.029279279" vertical-offset="10639" max-vertical-offset="27345">
+          <caret line="715" column="4" selection-start-line="715" selection-start-column="4" selection-end-line="715" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser-tiled/phaser-tiled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49012777" vertical-offset="78118" max-vertical-offset="82260">
+          <caret line="5236" column="24" selection-start-line="5236" selection-start-column="24" selection-end-line="5236" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game/img/coin.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="270">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/core/Group.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295712" vertical-offset="23405" max-vertical-offset="31065">
+          <caret line="1584" column="23" selection-start-line="1584" selection-start-column="23" selection-end-line="1584" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/gameobjects/Image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295712" vertical-offset="7115" max-vertical-offset="15630">
+          <caret line="498" column="23" selection-start-line="498" selection-start-column="23" selection-end-line="498" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/bower_components/phaser/src/loader/Loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295712" vertical-offset="9050" max-vertical-offset="28320">
+          <caret line="623" column="4" selection-start-line="623" selection-start-column="4" selection-end-line="623" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8687431" vertical-offset="1980" max-vertical-offset="3930">
-          <caret line="244" column="50" selection-start-line="244" selection-start-column="50" selection-end-line="244" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.53281426" vertical-offset="2176" max-vertical-offset="3090">
+          <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
           <folding />
         </state>
       </provider>

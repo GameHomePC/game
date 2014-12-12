@@ -167,8 +167,6 @@ var collisionPacker = function(game){
                 }
             }
 
-            player.body.onBeginContact.add(blockHit, this);
-
 
         },
         update: function(){
