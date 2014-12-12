@@ -23,6 +23,7 @@ var collisionPacker = function(game){
     };
 
     this.objectCollision = function(map, layer, addToWorld){
+        var bodies = [];
 
         if (typeof addToWorld === 'undefined') { addToWorld = true; }
 
@@ -59,8 +60,12 @@ var collisionPacker = function(game){
                 this.game.physics.p2.addBody(body);
             }
 
+            bodies.push(body);
+
 
         }
+
+        return bodies;
 
     };
 };
@@ -77,7 +82,30 @@ var collisionPacker = function(game){
 
     var PHYSICS = Phaser.Physics.P2JS;
 
-    var player, map, layer, coins, coin, coinAudio, coinText, objectCoin;
+    var player, playerMaterial, worldMaterial, map, layer, coins, coin, coinAudio, coinText, objectCoin;
+    var jumpButton, jumpTimer = 0;
+
+    function checkIfCanJump() {
+
+        var yAxis = p2.vec2.fromValues(0, 1);
+        var result = false;
+
+        for (var i = 0; i < game.physics.p2.world.narrowphase.contactEquations.length; i++)
+        {
+            var c = game.physics.p2.world.narrowphase.contactEquations[i];
+
+            if (c.bodyA === player.body.data || c.bodyB === player.body.data)
+            {
+                var d = p2.vec2.dot(c.normalA, yAxis); // Normal dot Y-axis
+                if (c.bodyA === player.body.data) d *= -1;
+                if (d > 0.5) result = true;
+            }
+        }
+
+        return result;
+
+    }
+
 
 
     var ui = {
@@ -128,6 +156,8 @@ var collisionPacker = function(game){
             ui.coins.obj = coinText;
 
 
+
+
             map = game.add.tilemap('level-1');
 
 
@@ -149,11 +179,17 @@ var collisionPacker = function(game){
 
             game.physics.p2.enable(player, false);
 
+            playerMaterial = game.physics.p2.createMaterial('playerMaterial', player.body);
+            worldMaterial = game.physics.p2.createMaterial('worldMaterial');
 
-            packer.objectCollision(map, 'collision', true);
+
+            var bodyObject = packer.objectCollision(map, 'collision', true);
+            game.physics.p2.setMaterial(worldMaterial, bodyObject);
+
+            console.log(worldMaterial);
 
             game.camera.follow(player);
-            cursors = game.input.keyboard.createCursorKeys();
+
 
 
             if (objectCoin.length){
@@ -173,6 +209,24 @@ var collisionPacker = function(game){
             }
 
 
+
+            player.body.damping = 0;
+            player.body.kinematic = false;
+            player.body.mass = 1000;
+
+            console.log(game.physics.p2);
+
+
+            var create = game.physics.p2.createContactMaterial(playerMaterial, worldMaterial);
+
+            create.frictionRelaxation = 10;
+            create.relaxation = 10;
+            create.restitution = 0;
+            create.friction = 10;
+
+            console.log(create);
+
+
             player.body.onBeginContact.add(function(body){
                 if (body && body.sprite){
                     var sprite = body.sprite;
@@ -188,6 +242,10 @@ var collisionPacker = function(game){
             });
 
 
+            cursors = game.input.keyboard.createCursorKeys();
+            jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+
         },
         update: function(){
 
@@ -195,18 +253,13 @@ var collisionPacker = function(game){
 
             if (cursors.left.isDown){
                 player.body.moveLeft(150);
-            }
-
-            if (cursors.right.isDown){
+            } else if (cursors.right.isDown){
                 player.body.moveRight(150);
             }
 
-            if (cursors.up.isDown){
-                player.body.moveUp(150);
-            }
-
-            if (cursors.down.isDown){
-                player.body.moveDown(150);
+            if (jumpButton.isDown && game.time.now > jumpTimer && checkIfCanJump()){
+                player.body.moveUp(300);
+                jumpTimer = game.time.now + 750;
             }
 
         }
