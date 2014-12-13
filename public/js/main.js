@@ -24,6 +24,7 @@ var collisionPacker = function(game){
 
     this.objectCollision = function(map, layer, addToWorld){
         var bodies = [];
+        var material = {};
 
         if (typeof addToWorld === 'undefined') { addToWorld = true; }
 
@@ -36,6 +37,7 @@ var collisionPacker = function(game){
         for (var i = 0, len = collisionObject.length; i < len; i+=1){
 
             var object = collisionObject[i];
+            var prop = object.properties;
 
             var body = this.game.physics.p2.createBody(object.x, object.y, 0, false);
 
@@ -62,10 +64,22 @@ var collisionPacker = function(game){
 
             bodies.push(body);
 
+            if (prop && prop.type){
+                if (material[prop.type]){
+                    material[prop.type].push(body);
+                } else {
+                    material[prop.type] = [];
+                    material[prop.type].push(body);
+                }
+            }
+
 
         }
 
-        return bodies;
+        return {
+            body: bodies,
+            material: material
+        };
 
     };
 };
@@ -84,6 +98,7 @@ var collisionPacker = function(game){
 
     var player, playerMaterial, worldMaterial, map, layer, coins, coin, coinAudio, coinText, objectCoin;
     var jumpButton, jumpTimer = 0;
+    var xMaterial, zMaterial;
 
     function checkIfCanJump() {
 
@@ -165,8 +180,6 @@ var collisionPacker = function(game){
 
 
 
-
-
             map.addTilesetImage('terrain');
             layer = map.createLayer('layer');
             layer.resizeWorld();
@@ -180,13 +193,14 @@ var collisionPacker = function(game){
             game.physics.p2.enable(player, false);
 
             playerMaterial = game.physics.p2.createMaterial('playerMaterial', player.body);
-            worldMaterial = game.physics.p2.createMaterial('worldMaterial');
+            xMaterial = game.physics.p2.createMaterial('xMaterial');
+            zMaterial = game.physics.p2.createMaterial('zMaterial');
 
 
-            var bodyObject = packer.objectCollision(map, 'collision', true);
-            game.physics.p2.setMaterial(worldMaterial, bodyObject);
+            var bodyObject = packer.objectCollision(map, 'collision', true).material;
 
-            console.log(worldMaterial);
+            game.physics.p2.setMaterial(xMaterial, bodyObject.x);
+            game.physics.p2.setMaterial(zMaterial, bodyObject.z);
 
             game.camera.follow(player);
 
@@ -210,20 +224,18 @@ var collisionPacker = function(game){
 
 
 
-            player.body.damping = 0;
+            player.body.damping = 0.1;
             player.body.kinematic = false;
             player.body.mass = 1;
-            player.body.fixedRotation = true;
+            player.body.fixedRotation = false;
 
 
-            var create = game.physics.p2.createContactMaterial(playerMaterial, worldMaterial);
+            var createX = game.physics.p2.createContactMaterial(playerMaterial, xMaterial);
+            var createZ = game.physics.p2.createContactMaterial(playerMaterial, zMaterial);
 
-            create.frictionRelaxation = 1000;
-            create.relaxation = 1000;
-            create.restitution = 0;
-            create.friction = 0;
 
-            console.log(create);
+            createZ.friction = 1;
+            createX.friction = 0.2;
 
 
             player.body.onBeginContact.add(function(body){
