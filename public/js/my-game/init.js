@@ -320,6 +320,10 @@
                 box.body.moveRight(200);
             }
 
+            if(cursors.isDown(activeKey.ENTER)){
+                this.game.state.start('Menu');
+            }
+
         }
     };
 
