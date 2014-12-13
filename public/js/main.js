@@ -77,7 +77,7 @@ var collisionPacker = function(game){
 
     var game, cursors, packer, activeKey;
     var w = 1000, h = 500, renderer = Phaser.AUTO, parent = 'game';
-
+    var playerJumpCount = 0, sound = true;;
     var PHYSICS = Phaser.Physics.P2JS;
 
     var player, playerMaterial, worldMaterial, map, layer, coins, coin, coinAudio, coinText, objectCoin;
@@ -252,18 +252,31 @@ var collisionPacker = function(game){
 
 
         },
-        update: function(){
+        update: function() {
 
-            if (cursors.isDown(activeKey.A) || cursors.isDown(activeKey.LEFT)){
+            if (cursors.isDown(activeKey.A) || cursors.isDown(activeKey.LEFT)) {
                 player.body.moveLeft(150);
-            } else if (cursors.isDown(activeKey.D) || cursors.isDown(activeKey.RIGHT)){
+            } else if (cursors.isDown(activeKey.D) || cursors.isDown(activeKey.RIGHT)) {
                 player.body.moveRight(150);
             }
 
-            if (cursors.isDown(activeKey.SPACEBAR) && game.time.now > jumpTimer && checkIfCanJump()){
+            if (cursors.isDown(activeKey.SPACEBAR) && game.time.now > jumpTimer && checkIfCanJump()) {
                 player.body.moveUp(300);
                 jumpTimer = game.time.now + 750;
             }
+
+            /*if (cursors.isDown(activeKey.SPACEBAR)) {
+
+                player.body.moveUp(300);
+                //if (sound) this.jump_s.play();
+                playerJumpCount = 1;
+            } else if (cursors.isDown(activeKey.SPACEBAR) && playerJumpCount < 12 && playerJumpCount != 0) {
+                playerJumpCount += 1;
+                player.body.moveUp(300);
+                console.log(checkIfCanJump());
+            } else {
+                playerJumpCount = 0;
+            }*/
 
         }
     });

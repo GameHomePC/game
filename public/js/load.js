@@ -30,7 +30,7 @@ Game.Load.prototype = {
         game.load.setPreloadSprite(preloading);
 
         game.load.spritesheet('player', 'public/game/img/player.png', 24, 30);
-        game.load.image('logo', 'public/game/img/player.png');
+        game.load.image('logo', 'public/game/img/elephpant.png');
         game.load.image('success', 'public/game/img/player.png');
         game.load.image('coin', 'public/game/img/player.png');
         game.load.image('enemy', 'public/game/img/player.png');
