@@ -77,7 +77,7 @@ var collisionPacker = function(game){
 
 (function(win, doc){
 
-    var game, cursors, packer;
+    var game, cursors, packer, activeKey;
     var w = 1000, h = 500, renderer = Phaser.AUTO, parent = 'game';
 
     var PHYSICS = Phaser.Physics.P2JS;
@@ -242,7 +242,8 @@ var collisionPacker = function(game){
             });
 
 
-            cursors = game.input.keyboard.createCursorKeys();
+            cursors = game.input.keyboard;
+            activeKey = Phaser.Keyboard;
             jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 
@@ -251,13 +252,13 @@ var collisionPacker = function(game){
 
 
 
-            if (cursors.left.isDown){
+            if (cursors.isDown(activeKey.A) || cursors.isDown(activeKey.LEFT)){
                 player.body.moveLeft(150);
-            } else if (cursors.right.isDown){
+            } else if (cursors.isDown(activeKey.D) || cursors.isDown(activeKey.RIGHT)){
                 player.body.moveRight(150);
             }
 
-            if (jumpButton.isDown && game.time.now > jumpTimer && checkIfCanJump()){
+            if (cursors.isDown(activeKey.SPACEBAR) && game.time.now > jumpTimer && checkIfCanJump()){
                 player.body.moveUp(300);
                 jumpTimer = game.time.now + 750;
             }

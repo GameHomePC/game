@@ -46,5 +46,3 @@ Game.Load.prototype = {
         game.state.start('Menu');
     }
 };
-
-Game.Menu = function(game){};
