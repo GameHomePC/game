@@ -1,22 +1,6 @@
 var collisionPacker = function(game){
     this.game = game;
 
-    this.contactSpriteAndGroup = function(obj, group, callback){
-        var _this = this;
-
-        group.forEachAlive(function(spriteGroupAlive){
-            _this.contactSpriteVsSprite(obj, spriteGroupAlive, callback);
-        });
-    };
-
-    this.contactSpriteVsSprite = function(obj1, obj2, callback){
-        var obj1Bounds = obj1.getBounds();
-        var obj2Bounds = obj2.getBounds();
-        if (obj1Bounds.intersects(obj2Bounds, true)){
-            callback(obj1, obj2);
-        }
-    };
-
     this.getObjectLayer = function(map, layer){
         var objects = map.objects;
         return objects[layer];
@@ -98,7 +82,7 @@ var collisionPacker = function(game){
 
     var player, playerMaterial, worldMaterial, map, layer, coins, coin, coinAudio, coinText, objectCoin;
     var jumpButton, jumpTimer = 0;
-    var xMaterial, zMaterial;
+    var xMaterial, zMaterial, yMaterial;
 
     function checkIfCanJump() {
 
@@ -191,7 +175,7 @@ var collisionPacker = function(game){
 
 
 
-            game.physics.p2.gravity.y = 2000;
+            game.physics.p2.gravity.y = 250;
             game.physics.p2.setImpactEvents(true);
 
             game.physics.p2.enable(player, false);
@@ -199,11 +183,13 @@ var collisionPacker = function(game){
             playerMaterial = game.physics.p2.createMaterial('playerMaterial', player.body);
             xMaterial = game.physics.p2.createMaterial('xMaterial');
             zMaterial = game.physics.p2.createMaterial('zMaterial');
+            yMaterial = game.physics.p2.createMaterial('yMaterial');
 
 
             var bodyObject = packer.objectCollision(map, 'collision', true).material;
 
             game.physics.p2.setMaterial(xMaterial, bodyObject.x);
+            game.physics.p2.setMaterial(yMaterial, bodyObject.y);
             game.physics.p2.setMaterial(zMaterial, bodyObject.z);
 
             game.camera.follow(player);
@@ -230,16 +216,19 @@ var collisionPacker = function(game){
 
             player.body.damping = 0.1;
             player.body.kinematic = false;
-            player.body.mass = 1;
+            player.body.mass = 100;
             player.body.fixedRotation = false;
 
 
-            var createX = game.physics.p2.createContactMaterial(playerMaterial, xMaterial);
-            var createZ = game.physics.p2.createContactMaterial(playerMaterial, zMaterial);
+            var createX = game.physics.p2.createContactMaterial(playerMaterial, xMaterial); // Лед
+            var createY = game.physics.p2.createContactMaterial(playerMaterial, yMaterial); // Матрас
+            var createZ = game.physics.p2.createContactMaterial(playerMaterial, zMaterial); // Земля
 
 
-            createZ.friction = 0.9;
+
             createX.friction = 0.1;
+            createY.relaxation = 1;
+            createZ.friction = 1;
 
 
             player.body.onBeginContact.add(function(body){
