@@ -303,21 +303,20 @@
                 stiffness: 100000
             });
 
-            console.log(contactMatras);
-
-
             this.game.camera.follow(box);
 
-            var cursors = this.optionsSet('cursors', this.game.input.keyboard.createCursorKeys());
+            var cursors = this.optionsSet('cursors', this.game.input.keyboard);
+            var activeKey = this.optionsSet('activeKey', Phaser.Keyboard);
 
         };
         this.update = function(){
             var box = this.optionsGet('box');
             var cursors = this.optionsGet('cursors');
+            var activeKey = this.optionsGet('activeKey');
 
-            if (cursors.left.isDown){
+            if (cursors.isDown(activeKey.A) || cursors.isDown(activeKey.LEFT)){
                 box.body.moveLeft(200);
-            } else if (cursors.right.isDown){
+            } else if (cursors.isDown(activeKey.D) || cursors.isDown(activeKey.RIGHT)){
                 box.body.moveRight(200);
             }
 
