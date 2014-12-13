@@ -174,7 +174,7 @@ var collisionPacker = function(game){
 
 
 
-            game.physics.p2.gravity.y = 200;
+            game.physics.p2.gravity.y = 2000;
             game.physics.p2.setImpactEvents(true);
 
             game.physics.p2.enable(player, false);
@@ -212,17 +212,16 @@ var collisionPacker = function(game){
 
             player.body.damping = 0;
             player.body.kinematic = false;
-            player.body.mass = 1000;
-
-            console.log(game.physics.p2);
+            player.body.mass = 1;
+            player.body.fixedRotation = true;
 
 
             var create = game.physics.p2.createContactMaterial(playerMaterial, worldMaterial);
 
-            create.frictionRelaxation = 10;
-            create.relaxation = 10;
+            create.frictionRelaxation = 1000;
+            create.relaxation = 1000;
             create.restitution = 0;
-            create.friction = 10;
+            create.friction = 0;
 
             console.log(create);
 
@@ -252,13 +251,13 @@ var collisionPacker = function(game){
 
 
             if (cursors.left.isDown){
-                player.body.moveLeft(150);
+                player.body.moveLeft(400);
             } else if (cursors.right.isDown){
-                player.body.moveRight(150);
+                player.body.moveRight(400);
             }
 
             if (jumpButton.isDown && game.time.now > jumpTimer && checkIfCanJump()){
-                player.body.moveUp(300);
+                player.body.moveUp(500);
                 jumpTimer = game.time.now + 750;
             }
 
