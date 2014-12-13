@@ -153,10 +153,14 @@ var collisionPacker = function(game){
 
             game.load.image('player', 'public/game/img/player.png');
             game.load.spritesheet('coin', 'public/game/img/coin_tile.png', 32, 32, 8);
-            game.load.audio('coin_sound', ['public/game/audio/coin.mp3', 'public/game/audio/coin.waw']);
+            game.load.audio('coin_sound', ['public/game/audio/coin.mp3', 'public/game/audio/coin.wav']);
+            game.load.audio('sound', ['public/game/audio/music.wav']);
 
         },
         create: function(){
+
+            var sound = game.add.sound('sound');
+            sound.play('', 0, 0.2, true);
 
 
 
@@ -234,8 +238,8 @@ var collisionPacker = function(game){
             var createZ = game.physics.p2.createContactMaterial(playerMaterial, zMaterial);
 
 
-            createZ.friction = 1;
-            createX.friction = 0.2;
+            createZ.friction = 0.9;
+            createX.friction = 0.1;
 
 
             player.body.onBeginContact.add(function(body){
