@@ -114,6 +114,9 @@
 
     State.Boot = new function(){
         this.preload = function(){
+
+            this.game.add.plugin(Phaser.Plugin.Debug);
+
             this.game.stage.backgroundColor = '#cc1111';
             this.game.load.image('preload', 'public/game/img/loading/loading.png');
             this.game.load.image('preload2', 'public/game/img/loading/loading2.png');
@@ -169,7 +172,8 @@
                 items: {
                     play: 'Играть',
                     cont: 'Продолжить',
-                    exit: 'Выход'
+                    exit: 'Выход',
+                    exit2: 'Выход 2'
                 },
                 start: function(_this, game, x, y, margin){
                     var items = this.items;
@@ -260,7 +264,7 @@
 
             playerBody.push(box.body);
 
-            for (var xBox = 0; xBox < 400; xBox+=1){
+            for (var xBox = 0; xBox < 200; xBox+=1){
                 var bounds = this.game.world.bounds;
                 var dataXBox = boxGroup.create(random(0, bounds.width), random(0, bounds.height), 'box');
                 this.game.physics.p2.enable(dataXBox, false);
