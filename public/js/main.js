@@ -234,8 +234,8 @@ var collisionPacker = function(game){
             var createZ = game.physics.p2.createContactMaterial(playerMaterial, zMaterial);
 
 
-            createZ.friction = 1;
-            createX.friction = 0.2;
+            createZ.friction = 0.9;
+            createX.friction = 0.1;
 
 
             player.body.onBeginContact.add(function(body){
