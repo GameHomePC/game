@@ -303,8 +303,6 @@
                 stiffness: 100000
             });
 
-            console.log(contactMatras);
-
 
             this.game.camera.follow(box);
 
