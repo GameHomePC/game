@@ -3,6 +3,8 @@ Game = {};
 var width = window.innerWidth,
     height = window.innerHeight;
 
+
+
 Game.Boot = function(game){};
 
 Game.Boot.prototype = {
@@ -41,6 +43,7 @@ Game.Load.prototype = {
 
         this.game.load.tilemap('map1', 'public/game/json/level-1.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.image('tiles', 'public/game/img/terrain.png');
+
     },
     create: function(){
         game.state.start('Menu');
