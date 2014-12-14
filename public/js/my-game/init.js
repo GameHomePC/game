@@ -338,7 +338,7 @@
         }
     };
 
-    var w = 800, h = 600;
+    var w = window.innerWidth, h = window.innerHeight;
     var game = new Phaser.Game(w, h, Phaser.AUTO, 'game');
 
     game.state.add('Boot', State.Boot);
