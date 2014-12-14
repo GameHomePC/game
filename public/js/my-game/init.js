@@ -81,12 +81,11 @@
 
             /* audio menu */
             var statusMusic = false;
-            var music = this.game.add.audio('musicMenu');
+            var music = this.game.add.audio('musicMenu', 1, true);
+            music.play('', 0, 1, true);
 
             var buttonAudio = this.game.add.button(worldW - 45, 10, 'buttonAudio', toggleAudio , music);
             buttonAudio.scale.set(0.5);
-            music.play();
-            music.loop = true;
 
 
             function toggleAudio(){
