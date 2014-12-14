@@ -362,7 +362,7 @@
 
             this.game.physics.p2.convertTilemap(map, layer);
 
-            var body = packer.objectCollision(map, 'collision', false);
+            var body = packer.setObjectCollision(map, 'collision', false);
             var laye = packer.setTileCollision(map, 'layer');
             var ind = packer.setTileIndexCollision(map, 'layer', [68]);
 
