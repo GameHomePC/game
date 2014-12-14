@@ -1,7 +1,5 @@
 (function(random, collisionPacker){
 
-    var backgroundTile, backgroundFon;
-
     var State = new function(){};
 
     State.Boot = new function(){
@@ -66,15 +64,12 @@
             var worldH = world.height;
 
             /* background */
-
-            backgroundFon = this.game.add.sprite(0, 0, 'backgroundLM');
-            backgroundFon.height = worldH;
-            backgroundFon.width = worldW;
+            this.backgroundFon = this.game.add.tileSprite(0, 0,worldW, worldH, 'backgroundLM');
 
             var cloud = this.cloud = this.game.add.group();
             for(var i = 0; i < 30; i++){
-                var backgroundTile = cloud.create(random(0, window.innerWidth),random(0, 100), 'reserve');
-                backgroundTile.scale.set(0.1);
+                var cloudInit = cloud.create(random(0, window.innerWidth),random(0, 100), 'reserve');
+                cloudInit.scale.set(0.1);
             }
 
             /* end background */
@@ -132,8 +127,9 @@
                 } else {
                     sprite.position.x += 4;
                 }
-
             });
+
+            this.backgroundFon.tilePosition.x += 2;
         }
     };
 
@@ -268,7 +264,7 @@
         }
     };
 
-    var w = window.innerWidth, h = window.innerHeight;
+    var w = 800, h = 600;
     var game = new Phaser.Game(w, h, Phaser.AUTO, 'game');
 
     game.state.add('Boot', State.Boot);
