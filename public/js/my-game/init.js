@@ -85,16 +85,24 @@
 
             var buttonAudio = this.game.add.button(worldW - 45, 10, 'buttonAudio', toggleAudio , music);
             buttonAudio.scale.set(0.5);
-            music.play('', 1, true);
+            music.play();
+            music.loop = true;
+
 
             function toggleAudio(){
 
                 if (this.paused){
+
                     this.resume();
+
                     buttonAudio.frame = 0;
+
                 } else {
+
                     this.pause();
+
                     buttonAudio.frame = 1;
+
                 }
 
             }
