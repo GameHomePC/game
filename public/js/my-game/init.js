@@ -235,9 +235,9 @@
             this.cloud.forEachAlive(function(sprite){
                 if(sprite.position.x >= window.innerWidth){
                     sprite.position.x = -sprite.width;
-                    sprite.position.y = random(0, 400);
+                    sprite.position.y = random(0, 300);
                 } else {
-                    sprite.position.x += 2;
+                    sprite.position.x += 4;
                 }
 
             });
