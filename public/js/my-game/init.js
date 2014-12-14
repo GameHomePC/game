@@ -439,6 +439,10 @@
                 this.game.state.start('Menu');
             }
 
+            if(cursors.isDown(activeKey.SPACEBAR)){
+                box.body.moveUp(200);
+            }
+
         }
     };
 
