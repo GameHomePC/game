@@ -167,9 +167,7 @@
                 return this.optionsPlay[key];
             };
 
-            this.game.physics.startSystem(Phaser.Physics.P2JS);
-            this.game.physics.p2.gravity.y = 500;
-            this.game.physics.p2.setImpactEvents(true);
+
 
             var packer = new collisionPacker(this.game);
 
@@ -195,15 +193,9 @@
             box.anchor.setTo(0.5);
             var boxGroup = this.optionsSet('boxGroup', this.game.add.group());
 
-
-
-
-            var tilemap = this.game.physics.p2.convertTilemap(map, layer);
-
-            map.setTileIndexCallback([68], function(){
-                console.log(arguments);
-            }, this);
-
+            this.game.physics.startSystem(Phaser.Physics.P2JS);
+            this.game.physics.p2.gravity.y = 500;
+            this.game.physics.p2.setImpactEvents(true);
             this.game.physics.p2.enable(box, false);
 
             var body = packer.setObjectCollision(map, 'collision', false);
