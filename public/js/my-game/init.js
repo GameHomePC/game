@@ -149,7 +149,7 @@
 
 
 
-
+    var backgroundTile, backgroundFon;
 
     var State = new function(){};
 
@@ -159,7 +159,7 @@
             this.game.add.plugin(Phaser.Plugin.Debug);
 
             this.game.stage.backgroundColor = '#cc1111';
-            this.game.load.image('backgroundLM', 'public/game/img/background-menu-load.jpg');
+            this.game.load.image('backgroundLM', 'public/game/img/background3.png');
             this.game.load.image('preload', 'public/game/img/loading/loading.png');
             this.game.load.image('preload2', 'public/game/img/loading/loading2.png');
         };
@@ -189,6 +189,7 @@
             this.game.load.setPreloadSprite(preloading);
 
             this.game.load.image('background', 'public/game/img/background2.png');
+            this.game.load.image('reserve', 'public/game/img/Reserve_Bubble.png');
             this.game.load.image('box', 'public/game/img/box.png');
             this.game.load.audio('music', ['public/game/audio/music.wav']);
 
@@ -214,9 +215,17 @@
             var worldH = world.height;
 
             /* background */
-            var background = this.game.add.sprite(0, 0, 'backgroundLM');
-            background.height = worldH;
-            background.width = worldW;
+
+            backgroundFon = this.game.add.sprite(0, 0, 'backgroundLM');
+            backgroundFon.height = worldH;
+            backgroundFon.width = worldW;
+
+            var cloud = this.cloud = this.game.add.group();
+            for(var i = 0; i < 30; i++){
+                var backgroundTile = cloud.create(random(0, window.innerWidth),random(0, 100), 'reserve');
+                backgroundTile.scale.set(0.1);
+            }
+
             /* end background */
 
             var menu = {
@@ -263,6 +272,18 @@
             menu.start(_this, this.game, 10, 10, 10);
 
         };
+
+        this.update = function(){
+            this.cloud.forEachAlive(function(sprite){
+                if(sprite.position.x >= window.innerWidth){
+                    sprite.position.x = -sprite.width;
+                    sprite.position.y = random(0, 300);
+                } else {
+                    sprite.position.x += 4;
+                }
+
+            });
+        }
     };
 
     State.Play = new function(){
@@ -381,7 +402,7 @@
         }
     };
 
-    var w = 800, h = 600;
+    var w = window.innerWidth, h = window.innerHeight;
     var game = new Phaser.Game(w, h, Phaser.AUTO, 'game');
 
     game.state.add('Boot', State.Boot);
