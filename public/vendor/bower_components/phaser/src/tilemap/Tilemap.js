@@ -714,7 +714,7 @@ Phaser.Tilemap.prototype = {
     * If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
     *
     * @method Phaser.Tilemap#setTileIndexCallback
-    * @param {number|array} indexes - Either a single tile index, or an array of tile indexes to have a collision callback set for.
+    * @param {number|array} indcxes - Either a single tile index, or an array of tile indexes to have a collision callback set for.
     * @param {function} callback - The callback that will be invoked when the tile is collided with.
     * @param {object} callbackContext - The context under which the callback is called.
     * @param {number|string|Phaser.TilemapLayer} [layer] - The layer to operate on. If not given will default to this.currentLayer.

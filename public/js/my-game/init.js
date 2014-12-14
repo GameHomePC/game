@@ -8,6 +8,47 @@
             return objects[layer];
         };
 
+        this.layerCollision = function(map, layer, indexArray, addToWorld){
+            indexArray = indexArray || [];
+            addToWorld = addToWorld || true;
+
+            var layersMap = map.layers;
+            var currentLayer;
+
+            if (layersMap && layersMap.length){
+
+                for (var x = 0, len = layersMap.length; x < len; x+=1){
+                    var data = layersMap[x];
+                    if (data.name == layer){
+                        currentLayer = data;
+                        break;
+                    }
+                }
+
+                if (currentLayer){
+
+                    var bodies = currentLayer.bodies = [];
+                    var ex = [];
+
+                    for (var yC = 0, yLen = currentLayer.height; yC < yLen; yC+=1){
+                        for (var xC = 0, xLen = currentLayer.width; xC < xLen; xC+=1){
+                            var dataTiles = currentLayer.data[yC][xC];
+                            var index = dataTiles.index;
+                            var properties = dataTiles.properties;
+
+                            if (dataTiles && ((properties && properties.collide == 'yes') || indexArray.length && indexArray.indexOf(index) > -1 && ex.indexOf(index) === -1)){
+                                var body = this.game.physics.p2.createBody(dataTiles.worldX, dataTiles.worldY, 0, true);
+                                body.addRectangle(dataTiles.width, dataTiles.height, dataTiles.width / 2, dataTiles.height / 2);
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+        };
+
         this.objectCollision = function(map, layer, addToWorld){
             var bodies = [];
             var material = {};
@@ -123,8 +164,6 @@
             this.game.load.image('preload2', 'public/game/img/loading/loading2.png');
         };
         this.create = function(){
-
-            console.log(this.game.stage);
             this.game.state.start('Load');
         };
     };
@@ -155,6 +194,7 @@
 
             this.game.load.tilemap('map', 'public/game/json/level-1.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('terrain', 'public/game/img/terrain.png');
+            this.game.load.image('tiles', 'public/game/img/tiles.png');
 
             this.game.load.image('background', 'public/game/img/background.jpg');
 
@@ -260,7 +300,10 @@
             this.game.physics.startSystem(Phaser.Physics.P2JS);
             this.game.physics.p2.gravity.y = 500;
 
-            var body = packer.objectCollision(map, 'collision', true);
+            this.game.physics.p2.convertTilemap(map, layer);
+
+            var body = packer.objectCollision(map, 'collision', false);
+            var laye = packer.layerCollision(map, 'layer', [68], true);
 
             var material = body.material;
 
