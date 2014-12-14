@@ -723,6 +723,8 @@ Phaser.Tilemap.prototype = {
 
         layer = this.getLayer(layer);
 
+        console.log(layer);
+
         if (typeof indexes === 'number')
         {
             //  This may seem a bit wasteful, because it will cause empty array elements to be created, but the look-up cost is much

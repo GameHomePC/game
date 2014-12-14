@@ -86,21 +86,6 @@ var collisionPacker = function(game){
         return bodies;
     };
 
-    this.setEventIndexContact = function(map, layer, indexses, callback){
-        indexses = indexses || [];
-
-        var layerMap = this.layerMap(map, layer);
-
-        this.eachDataLayer(layerMap, function(tile){
-            if (tile && indexses.length && indexses.indexOf(tile.index) !== -1){
-
-                tile.collisionCallbackContext = tile;
-                tile.collisionCallback = callback;
-
-            }
-        });
-    };
-
     this.setObjectCollision = function(map, layer, addToWorld){
         var bodies = [];
         var material = {};

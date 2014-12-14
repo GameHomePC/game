@@ -146,6 +146,10 @@
                 return this.optionsPlay[key];
             };
 
+            this.game.physics.startSystem(Phaser.Physics.P2JS);
+            this.game.physics.p2.gravity.y = 500;
+            this.game.physics.p2.setImpactEvents(true);
+
             var packer = new collisionPacker(this.game);
 
             var world = this.game.world;
@@ -161,14 +165,23 @@
             var layer = this.optionsSet('layer', map.createLayer('layer'));
             layer.resizeWorld();
 
+
+
+
+
+
             var box = this.optionsSet('box', this.game.add.sprite(100, 100, 'box'));
+            box.anchor.setTo(0.5);
             var boxGroup = this.optionsSet('boxGroup', this.game.add.group());
 
 
-            this.game.physics.startSystem(Phaser.Physics.P2JS);
-            this.game.physics.p2.gravity.y = 500;
 
-            this.game.physics.p2.convertTilemap(map, layer);
+
+            var tilemap = this.game.physics.p2.convertTilemap(map, layer);
+
+            map.setTileIndexCallback([68], function(){
+                console.log(arguments);
+            }, this);
 
             this.game.physics.p2.enable(box, false);
 
@@ -176,13 +189,7 @@
             var laye = packer.setTileCollision(map, 'layer');
             var ind = packer.setTileIndexCollision(map, 'layer', [68]);
 
-            packer.setEventIndexContact(map, 'layer', [68], function(){
-                console.log(1);
-            });
 
-            box.body.onBeginContact.add(function(body){
-                console.log(arguments);
-            });
 
             var material = body.material;
 
