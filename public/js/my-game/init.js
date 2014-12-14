@@ -8,45 +8,82 @@
             return objects[layer];
         };
 
-        this.layerCollision = function(map, layer, indexArray, addToWorld){
-            indexArray = indexArray || [];
-            addToWorld = addToWorld || true;
-
+        this.layerMap = function(map, layer){
             var layersMap = map.layers;
             var currentLayer;
 
-            if (layersMap && layersMap.length){
+            if (layersMap && layersMap.length) {
 
-                for (var x = 0, len = layersMap.length; x < len; x+=1){
+                for (var x = 0, len = layersMap.length; x < len; x += 1) {
                     var data = layersMap[x];
-                    if (data.name == layer){
+                    if (data.name == layer) {
                         currentLayer = data;
                         break;
                     }
                 }
 
-                if (currentLayer){
-
-                    var bodies = currentLayer.bodies = [];
-                    var ex = [];
-
-                    for (var yC = 0, yLen = currentLayer.height; yC < yLen; yC+=1){
-                        for (var xC = 0, xLen = currentLayer.width; xC < xLen; xC+=1){
-                            var dataTiles = currentLayer.data[yC][xC];
-                            var index = dataTiles.index;
-                            var properties = dataTiles.properties;
-
-                            if (dataTiles && ((properties && properties.collide == 'yes') || indexArray.length && indexArray.indexOf(index) > -1 && ex.indexOf(index) === -1)){
-                                var body = this.game.physics.p2.createBody(dataTiles.worldX, dataTiles.worldY, 0, true);
-                                body.addRectangle(dataTiles.width, dataTiles.height, dataTiles.width / 2, dataTiles.height / 2);
-                            }
-
-                        }
-                    }
-
-                }
             }
 
+            return currentLayer;
+        };
+
+        this.eachDataLayer = function(layer, callback){
+            if (layer){
+                var bodies = layer.bodies = [];
+
+                for (var yC = 0, yLen = layer.height; yC < yLen; yC+=1){
+                    for (var xC = 0, xLen = layer.width; xC < xLen; xC+=1){
+                        callback.call(this, layer.data[yC][xC], layer);
+                    }
+                }
+            }
+        };
+
+        this.setTileCollision = function(map, layer, options, addToWorld){
+            options = options || {
+                key: 'collide',
+                value: 'yes'
+            };
+
+            addToWorld = addToWorld || true;
+
+            var layerMap = this.layerMap(map, layer);
+            var bodies = layerMap.bodies = [];
+
+            this.eachDataLayer(layerMap, function(tile){
+                var properties = tile.properties;
+                if (tile && properties && properties[options.key] == options.value){
+                    var body = this.game.physics.p2.createBody(tile.worldX, tile.worldY, 0, false);
+                    body.addRectangle(tile.width, tile.height, tile.width / 2, tile.height / 2);
+                    bodies.push(body);
+
+                    if (addToWorld){
+                        this.game.physics.p2.addBody(body);
+                    }
+                }
+            });
+
+            return bodies;
+        };
+
+        this.setTileIndexCollision = function(map, layer, indexses, addToWorld){
+            indexses = indexses || [];
+            addToWorld = addToWorld || true;
+
+            var layerMap = this.layerMap(map, layer);
+            var bodies = layerMap.bodies = [];
+
+            this.eachDataLayer(layerMap, function(tile){
+                if (tile && indexses.length && indexses.indexOf(tile.index) !== -1){
+                    var body = this.game.physics.p2.createBody(tile.worldX, tile.worldY, 0, false);
+                    body.addRectangle(tile.width, tile.height, tile.width / 2, tile.height / 2);
+                    bodies.push(body);
+
+                    if (addToWorld){
+                        this.game.physics.p2.addBody(body);
+                    }
+                }
+            });
         };
 
         this.objectCollision = function(map, layer, addToWorld){
@@ -324,15 +361,16 @@
             this.game.physics.p2.convertTilemap(map, layer);
 
             var body = packer.objectCollision(map, 'collision', false);
-            var laye = packer.layerCollision(map, 'layer', [68], true);
+            var laye = packer.setTileCollision(map, 'layer');
+            var ind = packer.setTileIndexCollision(map, 'layer', [68]);
 
             var material = body.material;
 
             this.game.physics.p2.enable(box, false);
 
-            box.body.setRectangle(100, 100);
-            box.width = 100;
-            box.height = 100;
+            box.body.setRectangle(50, 50);
+            box.width = 50;
+            box.height = 50;
 
             var playerMaterial = this.game.physics.p2.createMaterial('playerMaterial');
             var playerBody = [];
