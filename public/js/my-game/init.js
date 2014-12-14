@@ -156,6 +156,8 @@
             this.game.load.tilemap('map', 'public/game/json/level-1.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('terrain', 'public/game/img/terrain.png');
 
+            this.game.load.image('background', 'public/game/img/background.jpg');
+
 
         };
         this.create = function(){
@@ -273,9 +275,9 @@
 
             playerBody.push(box.body);
 
-            for (var xBox = 0; xBox < 200; xBox+=1){
+            for (var xBox = 0; xBox < 20; xBox+=1){
                 var bounds = this.game.world.bounds;
-                var dataXBox = boxGroup.create(random(0, bounds.width), random(0, bounds.height), 'box');
+                var dataXBox = boxGroup.create(random(0, bounds.width), random(0, 200), 'box');
                 this.game.physics.p2.enable(dataXBox, false);
 
                 var w = random(50, 80);
