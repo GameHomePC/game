@@ -118,10 +118,13 @@
             this.game.add.plugin(Phaser.Plugin.Debug);
 
             this.game.stage.backgroundColor = '#cc1111';
+            this.game.load.image('backgroundLM', 'public/game/img/background-menu-load.jpg');
             this.game.load.image('preload', 'public/game/img/loading/loading.png');
             this.game.load.image('preload2', 'public/game/img/loading/loading2.png');
         };
         this.create = function(){
+
+            console.log(this.game.stage);
             this.game.state.start('Load');
         };
     };
@@ -167,6 +170,12 @@
             var world = this.game.world;
             var worldW = world.width;
             var worldH = world.height;
+
+            /* background */
+            var background = this.game.add.sprite(0, 0, 'backgroundLM');
+            background.height = worldH;
+            background.width = worldW;
+            /* end background */
 
             var menu = {
                 items: {
@@ -327,7 +336,7 @@
         }
     };
 
-    var w = 1300, h = 700;
+    var w = 800, h = 600;
     var game = new Phaser.Game(w, h, Phaser.AUTO, 'game');
 
     game.state.add('Boot', State.Boot);
