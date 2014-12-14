@@ -47,6 +47,7 @@
 
             /* button */
             this.game.load.spritesheet('buttonMenu', 'public/game/img/button/menu-buttonMain.png', 143, 28);
+            this.game.load.spritesheet('buttonAudio', 'public/game/img/button/toggle-audio.png', 67, 67);
 
             this.game.load.tilemap('map', 'public/game/json/level-1.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('terrain', 'public/game/img/terrain.png');
@@ -68,11 +69,6 @@
             var worldW = world.width;
             var worldH = world.height;
 
-            /* auduo menu */
-            var music = this.game.add.audio('musicMenu');
-            music.play();
-            /* end auduo menu */
-
             /* background */
             this.backgroundFon = this.game.add.tileSprite(0, 0,worldW, worldH, 'backgroundLM');
 
@@ -82,6 +78,31 @@
                 cloudInit.scale.set(0.1);
             }
             /* end background */
+
+            /* audio menu */
+            var statusMusic = false;
+            var music = this.game.add.audio('musicMenu');
+            music.autoplay = true;
+
+            var buttonAudio = this.game.add.button(worldW - 45, 10, 'buttonAudio', toggleAudio , this);
+            buttonAudio.scale.set(0.5);
+            music.play('', 1, true);
+
+            console.log(music);
+
+            function toggleAudio(){
+
+                if(statusMusic == true){
+                    music.volume = 1;
+                    statusMusic = false;
+                    buttonAudio.frame = 0;
+                } else {
+                    music.volume = 0;
+                    statusMusic = true;
+                    buttonAudio.frame = 1;
+                }
+            }
+            /* end audio menu */
 
             /* button */
             var menuItem = [{
@@ -102,7 +123,6 @@
                 var data = menuItem[m];
                 var button = this.game.add.button(worldW / 2, indent + 250, 'buttonMenu', up , this, 2,1,0);
 
-                console.log(this.game.world);
                 button._state = data.state;
                 button.y += (button.height * m) + (m * indent);
 
