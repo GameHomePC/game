@@ -84,9 +84,11 @@
                     }
                 }
             });
+
+            return bodies;
         };
 
-        this.objectCollision = function(map, layer, addToWorld){
+        this.setObjectCollision = function(map, layer, addToWorld){
             var bodies = [];
             var material = {};
 
