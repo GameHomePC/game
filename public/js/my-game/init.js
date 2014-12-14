@@ -118,13 +118,11 @@
             this.game.add.plugin(Phaser.Plugin.Debug);
 
             this.game.stage.backgroundColor = '#cc1111';
-            this.game.load.image('backgroundLM', 'public/game/img/background-menu-load.jpg');
+            this.game.load.image('backgroundLM', 'public/game/img/background3.png');
             this.game.load.image('preload', 'public/game/img/loading/loading.png');
             this.game.load.image('preload2', 'public/game/img/loading/loading2.png');
         };
         this.create = function(){
-
-            console.log(this.game.stage);
             this.game.state.start('Load');
         };
     };
