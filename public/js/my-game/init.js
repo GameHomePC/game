@@ -1,6 +1,6 @@
 (function(random, collisionPacker){
 
-    var State = new function(){};
+    var State = new function(game){};
 
     State.Boot = new function(){
         this.preload = function(){
@@ -40,12 +40,17 @@
             this.game.load.image('background', 'public/game/img/background2.png');
             this.game.load.image('reserve', 'public/game/img/Reserve_Bubble.png');
             this.game.load.image('box', 'public/game/img/box.png');
+
+            /* audio */
             this.game.load.audio('music', ['public/game/audio/music.wav']);
+            this.game.load.audio('musicMenu', ['public/game/audio/menu/audio-menu.mp3']);
+
+            /* button */
+            this.game.load.spritesheet('buttonMenu', 'public/game/img/button/menu-buttonMain.png', 143, 28);
 
             this.game.load.tilemap('map', 'public/game/json/level-1.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('terrain', 'public/game/img/terrain.png');
             this.game.load.image('tiles', 'public/game/img/tiles.png');
-
             this.game.load.image('background', 'public/game/img/background.jpg');
 
 
@@ -59,9 +64,14 @@
         this.create = function(){
             var _this = this;
 
-            var world = this.game.world;
+            var world = this.game.world.camera;
             var worldW = world.width;
             var worldH = world.height;
+
+            /* auduo menu */
+            var music = this.game.add.audio('musicMenu');
+            music.play();
+            /* end auduo menu */
 
             /* background */
             this.backgroundFon = this.game.add.tileSprite(0, 0,worldW, worldH, 'backgroundLM');
@@ -71,51 +81,39 @@
                 var cloudInit = cloud.create(random(0, window.innerWidth),random(0, 100), 'reserve');
                 cloudInit.scale.set(0.1);
             }
-
             /* end background */
 
-            var menu = {
-                items: {
-                    play: 'Играть',
-                    cont: 'Продолжить',
-                    exit: 'Выход',
-                    exit2: 'Выход 2'
+            /* button */
+            var menuItem = [{
+                title: 'Играть',
+                state: 'Play'
                 },
-                start: function(_this, game, x, y, margin){
-                    var items = this.items;
-                    var num = 0;
-                    for (var prop in items){
-                        if (items.hasOwnProperty(prop)){
-                            var text = game.add.text(x, y, items[prop], {
-                                fill: 'white'
-                            });
+                {
+                    title: 'Настройки',
+                    state: 'Setting'
+                }];
+            var indent = 20;
 
-                            text._keyItem = prop;
+            function up(button){
+                this.game.state.start(button._state);
+            }
 
-                            text.inputEnabled = true;
+            for(var m = 0; m < menuItem.length; m++){
+                var data = menuItem[m];
+                var button = this.game.add.button(worldW / 2, indent + 250, 'buttonMenu', up , this, 2,1,0);
 
-                            text.y += (text.height * num) + (margin * num);
+                console.log(this.game.world);
+                button._state = data.state;
+                button.y += (button.height * m) + (m * indent);
 
-                            (function(_this, text){
+                button.scale.set(1.5);
+                button.anchor.set(0.5);
 
-                                text.events.onInputDown.add(function(text){
-
-                                    var key = text._keyItem;
-                                    if (key == 'play'){
-                                        _this.game.state.start('Play');
-                                    }
-
-                                }, _this);
-
-                            })(_this, text);
-
-                            num += 1;
-                        }
-                    }
-                }
-            };
-
-            menu.start(_this, this.game, 10, 10, 10);
+                var text = this.add.text(worldW / 2, indent + 250, data.title, { fill: 'white' });
+                text.y += (text.height * m) + (m * indent);
+                text.anchor.set(0.5);
+            }
+            /* end button */
 
         };
 
