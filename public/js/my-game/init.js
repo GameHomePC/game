@@ -82,25 +82,21 @@
             /* audio menu */
             var statusMusic = false;
             var music = this.game.add.audio('musicMenu');
-            music.autoplay = true;
 
-            var buttonAudio = this.game.add.button(worldW - 45, 10, 'buttonAudio', toggleAudio , this);
+            var buttonAudio = this.game.add.button(worldW - 45, 10, 'buttonAudio', toggleAudio , music);
             buttonAudio.scale.set(0.5);
             music.play('', 1, true);
 
-            console.log(music);
-
             function toggleAudio(){
 
-                if(statusMusic == true){
-                    music.volume = 1;
-                    statusMusic = false;
+                if (this.paused){
+                    this.resume();
                     buttonAudio.frame = 0;
                 } else {
-                    music.volume = 0;
-                    statusMusic = true;
+                    this.pause();
                     buttonAudio.frame = 1;
                 }
+
             }
             /* end audio menu */
 
