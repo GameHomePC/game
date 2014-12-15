@@ -8,7 +8,7 @@
             this.game.add.plugin(Phaser.Plugin.Debug);
 
             this.game.stage.backgroundColor = '#cc1111';
-            this.game.load.image('backgroundLM', 'public/game/img/background3.png');
+            this.game.load.image('backgroundLM', 'public/game/img/Background3.png');
             this.game.load.image('preload', 'public/game/img/loading/loading.png');
             this.game.load.image('preload2', 'public/game/img/loading/loading2.png');
         };
@@ -141,6 +141,8 @@
         };
 
         this.update = function(){
+            /*
+
             this.cloud.forEachAlive(function(sprite){
                 if(sprite.position.x >= window.innerWidth){
                     sprite.position.x = -sprite.width;
@@ -151,6 +153,8 @@
             });
 
             this.backgroundFon.tilePosition.x += 2;
+
+            */
         }
     };
 
