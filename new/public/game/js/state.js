@@ -1,10 +1,46 @@
 var state = (function(){
 
+    var pointAngle = function(point, callback){
+        var positionDown = point.positionDown;
+
+        var radiants = Math.atan2(point.y - positionDown.y, point.x - positionDown.x);
+        var angle = (180 / Math.PI) * radiants;
+
+        if (callback){
+            callback(point, angle);
+        }
+
+        return {
+            point: point,
+            angle: angle
+        };
+    };
+
+    var angleR = function(value, min, max){
+        if (value > min && value < max){
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    var angleV = function(value, min, max){
+        if (value < min && value > max){
+            return true;
+        } else {
+            return false;
+        }
+    };
+
     function State(){}
 
     State.prototype = {
         Boot: {
-            preload: function(){},
+            preload: function(){
+                this.game.stage.backgroundColor = '#000';
+                this.game.load.image('loading', 'public/game/img/loading/loading.png');
+                this.game.load.image('loading1', 'public/game/img/loading/loading2.png');
+            },
             create: function(){
                 this.game.state.start('Load');
             }
@@ -13,6 +49,23 @@ var state = (function(){
             preload: function(){
                 var game = this.game;
                 var load = game.load;
+
+                var camera = game.world.camera;
+                var cameraW = camera.width;
+                var cameraH = camera.height;
+
+                var text = this.game.add.text(cameraW / 2, cameraH / 2, 'ЗАГРУЗКА', { fill: 'white' });
+                var preloading = this.game.add.sprite(cameraW / 2, cameraH / 2, 'loading');
+                var preloading2 = this.game.add.sprite(cameraW / 2, cameraH / 2, 'loading1');
+
+                preloading.y -= preloading.height / 2;
+                preloading2.y -= preloading2.height / 2;
+                preloading.x -= preloading.width / 2;
+                preloading2.x -= preloading2.width / 2;
+                text.x -= text.width / 2;
+                text.y += 20;
+
+                this.game.load.setPreloadSprite(preloading);
 
                 game.add.plugin(Phaser.Plugin.Debug);
 
@@ -62,7 +115,7 @@ var state = (function(){
                 this.facing = 'idle';
                 this.jumpCounter = 0;
                 this.maxJumlCounter = 7;
-                this.jumpStep = 64;
+                this.jumpStep = 10;
                 this.coinAudio = game.add.sound('coin', 1, false);
                 this.soundCheck = false;
                 this.soundMenu = game.add.sound('sound', 1, true);
@@ -70,7 +123,6 @@ var state = (function(){
                 if (!this.soundCheck){
                     this.soundCheck = true;
                     this.soundMenu.play('', 0, 1, true);
-                    console.log(this);
                 }
 
                 var map = game.add.tilemap('map');
@@ -105,12 +157,18 @@ var state = (function(){
 
                 var cursors = this.cursors = game.input.keyboard.createCursorKeys();
                 var space = this.space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
             },
             update: function(){
+                var camera = this.game.camera;
+                var cameraWidth = camera.width;
                 var arcade = this.physicsArcade;
                 var cursors = this.cursors;
                 var player = this.player;
                 var animations = player.animations;
+
+
+
 
                 arcade.collide(player, this.layer);
                 arcade.overlap(player, this.coins, function(player, coin){
@@ -119,6 +177,36 @@ var state = (function(){
                 }, null, this);
 
                 player.body.velocity.x = 0;
+
+                var pointInfo = pointAngle(this.game.input.pointer1);
+                var angle = pointInfo.angle;
+
+                var left = {
+                    b: angle > 90 && angle < 180,
+                    t: angle < -90 && angle > -180
+                };
+
+
+                var right = {
+                    b: angle > 0 && angle < 90,
+                    t: angle < 0 && angle > -90
+                };
+
+                if (pointInfo.point.isDown && (right.b || right.t)){
+                    player.body.velocity.x = 200;
+                    if (this.facing != 'right' && player.body.onFloor()){
+                        animations.play('right');
+                        this.facing = 'right';
+                    }
+                }
+
+                if (pointInfo.point.isDown && (left.b || left.t)){
+                    player.body.velocity.x = -200;
+                    if (this.facing != 'left' && player.body.onFloor()){
+                        animations.play('left');
+                        this.facing = 'left';
+                    }
+                }
 
                 if (cursors.right.isDown){
                     player.body.velocity.x = 200;
@@ -144,15 +232,15 @@ var state = (function(){
                     this.jumpCounter = 0;
                 }
 
-                if (this.space.isDown && player.body.onFloor() && this.jumpCounter == 0){
+                if ((this.space.isDown || this.game.input.pointer2.isDown)){
                     player.body.velocity.y -= this.jumpStep;
-                    player.animations.stop();
-                    player.frame = 0;
-                    this.jumpCounter = 1;
-                } else if (this.space.isDown && this.jumpCounter < this.maxJumlCounter && this.jumpCounter != 0){
-                    player.body.velocity.y -= this.jumpStep;;
-                    this.jumpCounter += 1;
                 }
+
+            },
+            render: function(){
+
+                this.game.debug.pointer(this.game.input.pointer1);
+                this.game.debug.pointer(this.game.input.pointer2);
 
             }
         }
