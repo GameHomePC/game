@@ -115,7 +115,7 @@ var state = (function(){
                 this.facing = 'idle';
                 this.jumpCounter = 0;
                 this.maxJumlCounter = 7;
-                this.jumpStep = 10;
+                this.jumpStep = 30;
                 this.coinAudio = game.add.sound('coin', 1, false);
                 this.soundCheck = false;
                 this.soundMenu = game.add.sound('sound', 1, true);
@@ -167,9 +167,6 @@ var state = (function(){
                 var player = this.player;
                 var animations = player.animations;
 
-
-
-
                 arcade.collide(player, this.layer);
                 arcade.overlap(player, this.coins, function(player, coin){
                     coin.kill();
@@ -194,7 +191,7 @@ var state = (function(){
 
                 if (pointInfo.point.isDown && (right.b || right.t)){
                     player.body.velocity.x = 200;
-                    if (this.facing != 'right' && player.body.onFloor()){
+                    if (this.facing != 'right'){
                         animations.play('right');
                         this.facing = 'right';
                     }
@@ -202,7 +199,7 @@ var state = (function(){
 
                 if (pointInfo.point.isDown && (left.b || left.t)){
                     player.body.velocity.x = -200;
-                    if (this.facing != 'left' && player.body.onFloor()){
+                    if (this.facing != 'left'){
                         animations.play('left');
                         this.facing = 'left';
                     }
@@ -210,13 +207,13 @@ var state = (function(){
 
                 if (cursors.right.isDown){
                     player.body.velocity.x = 200;
-                    if (this.facing != 'right' && player.body.onFloor()){
+                    if (this.facing != 'right'){
                         animations.play('right');
                         this.facing = 'right';
                     }
                 } else if (cursors.left.isDown){
                     player.body.velocity.x = -200;
-                    if (this.facing != 'left' && player.body.onFloor()){
+                    if (this.facing != 'left'){
                         animations.play('left');
                         this.facing = 'left';
                     }
@@ -226,10 +223,6 @@ var state = (function(){
                         player.frame = (this.facing == 'right') ? 8 : 4;
                         this.facing = 'idle';
                     }
-                }
-
-                if (this.space.isUp && !player.body.onFloor()){
-                    this.jumpCounter = 0;
                 }
 
                 if ((this.space.isDown || this.game.input.pointer2.isDown)){
