@@ -14,6 +14,8 @@ var state = (function(){
                 var game = this.game;
                 var load = game.load;
 
+                game.add.plugin(Phaser.Plugin.Debug);
+
                 load.image('background-1', 'public/game/img/Background01.png');
                 load.image('background-2', 'public/game/img/Background02.png');
                 load.image('background-3', 'public/game/img/Background03.png');
@@ -21,6 +23,7 @@ var state = (function(){
                 load.image('background-5', 'public/game/img/Background05.png');
 
                 load.audio('coin', ['public/game/audio/coin.wav']);
+                load.audio('sound', ['public/game/audio/audio-menu.mp3']);
 
                 load.spritesheet('player', 'public/game/img/player_2.png', 32, 50, 15);
                 load.spritesheet('cow', 'public/game/img/cow.png', 192, 128, 8);
@@ -61,6 +64,14 @@ var state = (function(){
                 this.maxJumlCounter = 7;
                 this.jumpStep = 64;
                 this.coinAudio = game.add.sound('coin', 1, false);
+                this.soundCheck = false;
+                this.soundMenu = game.add.sound('sound', 1, true);
+
+                if (!this.soundCheck){
+                    this.soundCheck = true;
+                    this.soundMenu.play('', 0, 1, true);
+                    console.log(this);
+                }
 
                 var map = game.add.tilemap('map');
                 map.addTilesetImage('tile-1');
